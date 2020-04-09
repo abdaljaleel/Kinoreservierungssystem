@@ -1,0 +1,671 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generiert durch Microsoft Visio, SVG Export Sequenzdiagramm.svg Page-1 -->
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:ev="http://www.w3.org/2001/xml-events"
+		xmlns:v="http://schemas.microsoft.com/visio/2003/SVGExtensions/" width="9.83765in" height="10.0493in"
+		viewBox="0 0 708.311 723.55" xml:space="preserve" color-interpolation-filters="sRGB" class="st18">
+	<v:documentProperties v:langID="1031" v:metric="true" v:viewMarkup="false">
+		<v:userDefs>
+			<v:ud v:nameU="msvNoAutoConnect" v:prompt="" v:val="VT0(1):26"/>
+		</v:userDefs>
+	</v:documentProperties>
+
+	<style type="text/css">
+	<![CDATA[
+		.st1 {fill:#a5a5a5;fill-opacity:0;stroke:#a5a5a5;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.5}
+		.st2 {fill:#ffffff;stroke:#a5a5a5;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.5}
+		.st3 {fill:#a5a5a5;font-family:Calibri;font-size:0.666664em;font-weight:bold}
+		.st4 {fill:#a5a5a5;font-family:Calibri;font-size:0.666664em}
+		.st5 {fill:#5b9bd5;stroke:#ffffff;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.5}
+		.st6 {stroke:#5592c9;stroke-dasharray:3.5,2.5;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.5}
+		.st7 {fill:#ffffff;font-family:Calibri;font-size:1.00001em;font-weight:bold}
+		.st8 {fill:#73ae42;stroke:#6ca43d;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.5}
+		.st9 {marker-end:url(#mrkr4-81);stroke:#6ca43d;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.5}
+		.st10 {fill:#6ca43d;fill-opacity:1;stroke:#6ca43d;stroke-opacity:1;stroke-width:0.13368983957219}
+		.st11 {fill:#ffffff;stroke:none;stroke-linecap:butt;stroke-width:7.2}
+		.st12 {fill:#53802e;font-family:Calibri;font-size:0.666664em}
+		.st13 {marker-end:url(#mrkr3-100);stroke:#6ca43d;stroke-dasharray:3.5,2.5;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.5}
+		.st14 {fill:none}
+		.st15 {stroke:#4271c6;stroke-dasharray:3.5,2.5;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.5}
+		.st16 {fill:#4271c5;font-family:Calibri;font-size:0.666664em}
+		.st17 {marker-end:url(#mrkr3-100);stroke:#6ca43d;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.5}
+		.st18 {fill:none;fill-rule:evenodd;font-size:12px;overflow:visible;stroke-linecap:square;stroke-miterlimit:3}
+	]]>
+	</style>
+
+	<defs id="Markers">
+		<g id="lend4">
+			<path d="M 2 1 L 0 0 L 2 -1 L 2 1 " style="stroke:none"/>
+		</g>
+		<marker id="mrkr4-81" class="st10" v:arrowType="4" v:arrowSize="3" v:setback="14.96" refX="-14.96" orient="auto"
+				markerUnits="strokeWidth" overflow="visible">
+			<use xlink:href="#lend4" transform="scale(-7.48,-7.48) "/>
+		</marker>
+		<g id="lend3">
+			<path d="M 2 1 L 0 0 L 2 -1 " style="stroke-linecap:round;stroke-linejoin:round;fill:none"/>
+		</g>
+		<marker id="mrkr3-100" class="st10" v:arrowType="3" v:arrowSize="3" orient="auto" markerUnits="strokeWidth"
+				overflow="visible">
+			<use xlink:href="#lend3" transform="scale(-7.48,-7.48) "/>
+		</marker>
+	</defs>
+	<g v:mID="0" v:index="1" v:groupContext="foregroundPage">
+		<v:userDefs>
+			<v:ud v:nameU="msvThemeOrder" v:val="VT0(0):26"/>
+		</v:userDefs>
+		<title>Zeichenblatt-1</title>
+		<v:pageProperties v:drawingScale="0.0393701" v:pageScale="0.0393701" v:drawingUnits="24" v:shadowOffsetX="8.50394"
+				v:shadowOffsetY="-8.50394"/>
+		<v:layer v:name="Verbinder" v:index="0"/>
+		<g id="group48-1" transform="translate(148.793,-388.499)" v:mID="48" v:groupContext="group">
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<title>Schleifenfragment</title>
+			<g id="shape48-2" v:mID="48" v:groupContext="groupContent">
+				<rect x="0" y="510.952" width="226.772" height="212.598" class="st1"/>
+			</g>
+			<g id="shape49-4" v:mID="49" v:groupContext="shape" transform="translate(0,-194.995)">
+				<title>Tabelle.49</title>
+				<desc>Schleife</desc>
+				<v:userDefs>
+					<v:ud v:nameU="FoldSize" v:prompt="" v:val="VT0(0.098425196850394):24"/>
+					<v:ud v:nameU="BackFillColor" v:prompt="" v:val="VT5(#96afcf)"/>
+					<v:ud v:nameU="BackLineColor" v:prompt="" v:val="VT5(#1f477d)"/>
+					<v:ud v:nameU="BackCharColor" v:prompt="" v:val="VT5(#000000)"/>
+					<v:ud v:nameU="DarkerColor" v:prompt="" v:val="VT5(#000000)"/>
+					<v:ud v:nameU="BackFillColor" v:prompt="" v:val="VT5(#a5a5a5)"/>
+					<v:ud v:nameU="BackLineColor" v:prompt="" v:val="VT5(#a5a5a5)"/>
+					<v:ud v:nameU="BackCharColor" v:prompt="" v:val="VT5(#ffffff)"/>
+					<v:ud v:nameU="DarkerColor" v:prompt="" v:val="VT5(#a5a5a5)"/>
+				</v:userDefs>
+				<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+				<v:textRect cx="32" cy="714.749" width="64" height="17.6036"/>
+				<path d="M0 723.55 L56.91 723.55 L64 716.46 L64 705.95 L0 705.95 L0 723.55 Z" class="st2"/>
+				<text x="4" y="717.15" class="st3" v:langID="1031"><v:paragraph/><v:tabList/>Schleife</text>			</g>
+			<g id="shape50-7" v:mID="50" v:groupContext="shape" transform="translate(0,-177.391)">
+				<title>Tabelle.50</title>
+				<desc>anzahlVorstellung</desc>
+				<v:userDefs>
+					<v:ud v:nameU="msvQuickStyleVariationRestore" v:prompt="" v:val="VT0(2):26"/>
+				</v:userDefs>
+				<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+				<v:textRect cx="34.0288" cy="714.749" width="68.06" height="17.6036"/>
+				<text x="4" y="717.15" class="st4" v:langID="1031"><v:paragraph/><v:tabList/>anzahlVorstellung</text>			</g>
+		</g>
+		<g id="group1-9" transform="translate(18.25,-642.23)" v:mID="1" v:groupContext="group">
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(15):26"/>
+				<v:ud v:nameU="ShowActor" v:prompt="" v:val="VT0(1):5"/>
+				<v:ud v:nameU="ShowDestruction" v:prompt="" v:val="VT0(0):5"/>
+			</v:userDefs>
+			<title>Akteur-Lebenslinie</title>
+			<desc>Akteur</desc>
+			<g id="shape2-10" v:mID="2" v:groupContext="shape">
+				<title>Tabelle.2</title>
+				<rect x="0" y="698.039" width="51.0236" height="25.5118" class="st5"/>
+			</g>
+			<g id="shape3-12" v:mID="3" v:groupContext="shape" transform="translate(17.0079,-29.0551)">
+				<title>Tabelle.3</title>
+				<path d="M3.4 723.55 L3.4 706.54 L3.4 713.35 L0 713.35 L0 699.74 L1.7 698.04 L15.31 698.04 L17.01 699.74 L17.01 713.35
+							 L13.61 713.35 L13.61 706.54 L13.61 723.55 L8.5 723.55 L8.5 709.94 L8.5 723.55 L3.4 723.55 ZM11.91 692.94
+							 A3.40157 3.40157 -180 1 0 5.1 692.94 A3.40157 3.40157 -180 1 0 11.91 692.94 Z" class="st5"/>
+			</g>
+			<g id="shape4-14" v:mID="4" v:groupContext="shape" transform="translate(17.0079,624.23)">
+				<title>Tabelle.4</title>
+			</g>
+			<g id="shape5-16" v:mID="5" v:groupContext="shape" transform="translate(749.062,723.55) rotate(90)">
+				<title>Tabelle.5</title>
+				<path d="M0 723.55 L606.61 723.55" class="st6"/>
+			</g>
+			<g id="shape1-19" v:mID="1" v:groupContext="groupContent">
+				<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+				<v:textRect cx="25.5118" cy="710.794" width="51.03" height="25.5118"/>
+				<rect x="0" y="698.039" width="51.0236" height="25.5118" class="st5"/>
+				<text x="8.54" y="714.39" class="st7" v:langID="1031"><v:paragraph v:horizAlign="1"/><v:tabList/>Akteur</text>			</g>
+		</g>
+		<g id="group6-22" transform="translate(196.833,-642.23)" v:mID="6" v:groupContext="group">
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(15):26"/>
+				<v:ud v:nameU="ShowActor" v:prompt="" v:val="VT0(0):5"/>
+				<v:ud v:nameU="ShowDestruction" v:prompt="" v:val="VT0(0):5"/>
+			</v:userDefs>
+			<title>Objektlebenslinie</title>
+			<desc>Film</desc>
+			<g id="shape7-23" v:mID="7" v:groupContext="shape">
+				<title>Tabelle.7</title>
+				<rect x="0" y="698.039" width="51.0236" height="25.5118" class="st5"/>
+			</g>
+			<g id="shape8-25" v:mID="8" v:groupContext="shape" transform="translate(17.0079,-29.0551)">
+				<title>Tabelle.8</title>
+				<path d="M8.5 723.55 a0 0 0 1 1 0 0 a0 0 0 1 1 0 0 Z" class="st5"/>
+			</g>
+			<g id="shape9-27" v:mID="9" v:groupContext="shape" transform="translate(17.0079,607.222)">
+				<title>Tabelle.9</title>
+			</g>
+			<g id="shape10-29" v:mID="10" v:groupContext="shape" transform="translate(749.062,723.55) rotate(90)">
+				<title>Tabelle.10</title>
+				<path d="M0 723.55 L589.61 723.55" class="st6"/>
+			</g>
+			<g id="shape6-32" v:mID="6" v:groupContext="groupContent">
+				<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+				<v:textRect cx="25.5118" cy="710.794" width="51.03" height="25.5118"/>
+				<rect x="0" y="698.039" width="51.0236" height="25.5118" class="st5"/>
+				<text x="14.93" y="714.39" class="st7" v:langID="1031"><v:paragraph v:horizAlign="1"/><v:tabList/>Film</text>			</g>
+		</g>
+		<g id="group16-35" transform="translate(106.124,-642.23)" v:mID="16" v:groupContext="group">
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(15):26"/>
+				<v:ud v:nameU="ShowActor" v:prompt="" v:val="VT0(0):5"/>
+				<v:ud v:nameU="ShowDestruction" v:prompt="" v:val="VT0(0):5"/>
+			</v:userDefs>
+			<title>Objektlebenslinie.16</title>
+			<desc>Buchung</desc>
+			<g id="shape17-36" v:mID="17" v:groupContext="shape" transform="translate(8.50394,0)">
+				<title>Tabelle.17</title>
+				<rect x="0" y="698.039" width="51.0236" height="25.5118" class="st5"/>
+			</g>
+			<g id="shape18-38" v:mID="18" v:groupContext="shape" transform="translate(25.5118,-29.0551)">
+				<title>Tabelle.18</title>
+				<path d="M8.5 723.55 a0 0 0 1 1 0 0 a0 0 0 1 1 0 0 Z" class="st5"/>
+			</g>
+			<g id="shape19-40" v:mID="19" v:groupContext="shape" transform="translate(22.6772,420.135)">
+				<title>Tabelle.19</title>
+			</g>
+			<g id="shape20-42" v:mID="20" v:groupContext="shape" transform="translate(757.566,723.55) rotate(90)">
+				<title>Tabelle.20</title>
+				<path d="M0 723.55 L402.52 723.55" class="st6"/>
+			</g>
+			<g id="shape16-45" v:mID="16" v:groupContext="groupContent">
+				<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+				<v:textRect cx="34.0157" cy="710.794" width="68.04" height="25.5118"/>
+				<rect x="0" y="698.039" width="68.0315" height="25.5118" class="st5"/>
+				<text x="12.42" y="714.39" class="st7" v:langID="1031"><v:paragraph v:horizAlign="1"/><v:tabList/>Buchung</text>			</g>
+		</g>
+		<g id="group21-48" transform="translate(290.376,-642.23)" v:mID="21" v:groupContext="group">
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(15):26"/>
+				<v:ud v:nameU="ShowActor" v:prompt="" v:val="VT0(0):5"/>
+				<v:ud v:nameU="ShowDestruction" v:prompt="" v:val="VT0(0):5"/>
+			</v:userDefs>
+			<title>Objektlebenslinie.21</title>
+			<desc>Vorstellung</desc>
+			<g id="shape22-49" v:mID="22" v:groupContext="shape" transform="translate(8.50394,0)">
+				<title>Tabelle.22</title>
+				<rect x="0" y="698.039" width="51.0236" height="25.5118" class="st5"/>
+			</g>
+			<g id="shape23-51" v:mID="23" v:groupContext="shape" transform="translate(25.5118,-29.0551)">
+				<title>Tabelle.23</title>
+				<path d="M8.5 723.55 a0 0 0 1 1 0 0 a0 0 0 1 1 0 0 Z" class="st5"/>
+			</g>
+			<g id="shape24-53" v:mID="24" v:groupContext="shape" transform="translate(22.6772,571.08)">
+				<title>Tabelle.24</title>
+			</g>
+			<g id="shape25-55" v:mID="25" v:groupContext="shape" transform="translate(757.566,723.55) rotate(90)">
+				<title>Tabelle.25</title>
+				<path d="M0 723.55 L553.46 723.55" class="st6"/>
+			</g>
+			<g id="shape21-58" v:mID="21" v:groupContext="groupContent">
+				<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+				<v:textRect cx="34.0157" cy="710.794" width="68.04" height="25.5118"/>
+				<rect x="0" y="698.039" width="68.0315" height="25.5118" class="st5"/>
+				<text x="5.38" y="714.39" class="st7" v:langID="1031"><v:paragraph v:horizAlign="1"/><v:tabList/>Vorstellung</text>			</g>
+		</g>
+		<g id="group36-61" transform="translate(588.014,-642.23)" v:mID="36" v:groupContext="group">
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(15):26"/>
+				<v:ud v:nameU="ShowActor" v:prompt="" v:val="VT0(0):5"/>
+				<v:ud v:nameU="ShowDestruction" v:prompt="" v:val="VT0(0):5"/>
+			</v:userDefs>
+			<title>Objektlebenslinie.36</title>
+			<desc>Ticket</desc>
+			<g id="shape37-62" v:mID="37" v:groupContext="shape" transform="translate(8.50394,0)">
+				<title>Tabelle.37</title>
+				<rect x="0" y="698.039" width="51.0236" height="25.5118" class="st5"/>
+			</g>
+			<g id="shape38-64" v:mID="38" v:groupContext="shape" transform="translate(25.5118,-29.0551)">
+				<title>Tabelle.38</title>
+				<path d="M8.5 723.55 a0 0 0 1 1 0 0 a0 0 0 1 1 0 0 Z" class="st5"/>
+			</g>
+			<g id="shape39-66" v:mID="39" v:groupContext="shape" transform="translate(22.6772,531.395)">
+				<title>Tabelle.39</title>
+			</g>
+			<g id="shape40-68" v:mID="40" v:groupContext="shape" transform="translate(757.566,723.55) rotate(90)">
+				<title>Tabelle.40</title>
+				<path d="M0 723.55 L513.78 723.55" class="st6"/>
+			</g>
+			<g id="shape36-71" v:mID="36" v:groupContext="groupContent">
+				<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+				<v:textRect cx="34.0157" cy="710.794" width="68.04" height="25.5118"/>
+				<rect x="0" y="698.039" width="68.0315" height="25.5118" class="st5"/>
+				<text x="19.08" y="714.39" class="st7" v:langID="1031"><v:paragraph v:horizAlign="1"/><v:tabList/>Ticket</text>			</g>
+		</g>
+		<g id="shape41-74" v:mID="41" v:groupContext="shape" transform="translate(-675.537,585.321) rotate(-90)">
+			<title>Aktivierung</title>
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<rect x="0" y="715.046" width="486" height="8.50394" class="st8"/>
+		</g>
+		<g id="shape42-76" v:mID="42" v:groupContext="shape" v:layerMember="0" transform="translate(48.0138,-617.143)">
+			<title>Nachricht</title>
+			<desc>getDaten</desc>
+			<v:userDefs>
+				<v:ud v:nameU="IsReturn" v:prompt="" v:val="VT0(0):5"/>
+				<v:ud v:nameU="IsAsync" v:prompt="" v:val="VT0(0):26"/>
+				<v:ud v:nameU="IsSelfMessage" v:prompt="" v:val="VT0(0):5"/>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="94.0363" cy="727.36" width="40" height="17.6036"/>
+			<path d="M0 716.46 L162.6 716.46" class="st9"/>
+			<rect v:rectContext="textBkgnd" x="79.015" y="722.56" width="30.0424" height="9.59985" class="st11"/>
+			<text x="79.01" y="729.76" class="st12" v:langID="1031"><v:paragraph v:horizAlign="1"/><v:tabList/>getDaten</text>		</g>
+		<g id="shape43-84" v:mID="43" v:groupContext="shape" transform="translate(-496.954,351.321) rotate(-90)">
+			<title>Aktivierung.43</title>
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<rect x="0" y="715.046" width="252" height="8.50394" class="st8"/>
+		</g>
+		<g id="shape45-86" v:mID="45" v:groupContext="shape" v:layerMember="0" transform="translate(226.596,-563.143)">
+			<title>Nachricht.45</title>
+			<desc>getTitel</desc>
+			<v:userDefs>
+				<v:ud v:nameU="IsReturn" v:prompt="" v:val="VT0(0):5"/>
+				<v:ud v:nameU="IsAsync" v:prompt="" v:val="VT0(0):26"/>
+				<v:ud v:nameU="IsSelfMessage" v:prompt="" v:val="VT0(0):5"/>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="44.7381" cy="703.141" width="40" height="17.6036"/>
+			<path d="M0 716.46 L86.06 716.46" class="st9"/>
+			<rect v:rectContext="textBkgnd" x="32.4104" y="698.341" width="24.6555" height="9.59985" class="st11"/>
+			<text x="32.41" y="705.54" class="st12" v:langID="1031"><v:paragraph v:horizAlign="1"/><v:tabList/>getTitel</text>		</g>
+		<g id="shape46-93" v:mID="46" v:groupContext="shape" transform="translate(-394.907,477.321) rotate(-90)">
+			<title>Aktivierung.46</title>
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<rect x="0" y="715.046" width="378" height="8.50394" class="st8"/>
+		</g>
+		<g id="shape56-95" v:mID="56" v:groupContext="shape" v:layerMember="0" transform="translate(320.14,-545.143)">
+			<title>Antwortnachricht.56</title>
+			<desc>Titel</desc>
+			<v:userDefs>
+				<v:ud v:nameU="IsReturn" v:prompt="" v:val="VT0(1):5"/>
+				<v:ud v:nameU="IsAsync" v:prompt="" v:val="VT0(0):26"/>
+				<v:ud v:nameU="IsSelfMessage" v:prompt="" v:val="VT0(0):5"/>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="-46.7717" cy="716.464" width="40" height="17.6036"/>
+			<path d="M0 716.46 L-93.54 716.46" class="st13"/>
+			<rect v:rectContext="textBkgnd" x="-53.8866" y="711.664" width="14.23" height="9.59985" class="st11"/>
+			<text x="-53.89" y="718.86" class="st12" v:langID="1031"><v:paragraph v:horizAlign="1"/><v:tabList/>Titel</text>		</g>
+		<g id="group57-103" transform="translate(148.793,-398.152)" v:mID="57" v:groupContext="group">
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(15):26"/>
+				<v:ud v:nameU="msvStructureType" v:prompt="" v:val="VT4(List)"/>
+				<v:ud v:nameU="msvSDListItemMaster" v:prompt="" v:val="VT0(254):26"/>
+				<v:ud v:nameU="msvSDListAlignment" v:prompt="" v:val="VT0(0):26"/>
+				<v:ud v:nameU="msvSDListRequiredCategories" v:prompt="" v:val="VT4(Interaction operand)"/>
+			</v:userDefs>
+			<title>Alternatives Fragment</title>
+			<g id="shape57-104" v:mID="57" v:groupContext="groupContent">
+				<rect x="0" y="564.215" width="212.598" height="159.336" class="st1"/>
+			</g>
+			<g id="shape58-106" v:mID="58" v:groupContext="shape" transform="translate(0,-141.732)">
+				<title>Tabelle.58</title>
+				<desc>alt</desc>
+				<v:userDefs>
+					<v:ud v:nameU="FoldSize" v:prompt="" v:val="VT0(0.098425196850394):24"/>
+					<v:ud v:nameU="msvStructureType" v:prompt="" v:val="VT4(Heading)"/>
+					<v:ud v:nameU="msvSDContainerHeadingEdge" v:prompt="" v:val="VT4(Bottom)"/>
+					<v:ud v:nameU="BackFillColor" v:prompt="" v:val="VT5(#96afcf)"/>
+					<v:ud v:nameU="BackLineColor" v:prompt="" v:val="VT5(#1f477d)"/>
+					<v:ud v:nameU="BackCharColor" v:prompt="" v:val="VT5(#000000)"/>
+					<v:ud v:nameU="DarkerColor" v:prompt="" v:val="VT5(#000000)"/>
+					<v:ud v:nameU="BackFillColor" v:prompt="" v:val="VT5(#a5a5a5)"/>
+					<v:ud v:nameU="BackLineColor" v:prompt="" v:val="VT5(#a5a5a5)"/>
+					<v:ud v:nameU="BackCharColor" v:prompt="" v:val="VT5(#ffffff)"/>
+					<v:ud v:nameU="DarkerColor" v:prompt="" v:val="VT5(#a5a5a5)"/>
+				</v:userDefs>
+				<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+				<v:textRect cx="32" cy="714.749" width="64" height="17.6036"/>
+				<path d="M0 723.55 L56.91 723.55 L64 716.46 L64 705.95 L0 705.95 L0 723.55 Z" class="st2"/>
+				<text x="4" y="717.15" class="st3" v:langID="1031"><v:paragraph/><v:tabList/>alt</text>			</g>
+		</g>
+		<g id="shape59-109" v:mID="59" v:groupContext="shape" transform="translate(148.793,-398.152)">
+			<title>Interaktionsoperand</title>
+			<desc>[Filmtitel pass nicht]</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(15):26"/>
+				<v:ud v:nameU="msvShapeCategories" v:prompt="" v:val="VT4(Interaction operand)"/>
+				<v:ud v:nameU="UserWidth" v:prompt="" v:val="VT0(1.8897637795276):24"/>
+				<v:ud v:nameU="WidthMin" v:prompt="" v:val="VT0(0):26"/>
+				<v:ud v:nameU="msvNotMergeMasterByJustName" v:prompt="" v:val="VT0(1):26"/>
+				<v:ud v:nameU="WidthMin" v:prompt="" v:val="VT0(0):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="37.8411" cy="661.486" width="75.69" height="17.6036"/>
+			<path d="M0 723.55 L212.6 723.55 L212.6 652.68 L0 652.68 L0 723.55 Z" class="st14"/>
+			<path d="M212.6 652.68 L0 652.68" class="st15"/>
+			<text x="4" y="663.89" class="st16" v:langID="1031"><v:paragraph/><v:tabList/>[Filmtitel pass nicht]</text>		</g>
+		<g id="shape60-113" v:mID="60" v:groupContext="shape" transform="translate(148.793,-469.018)">
+			<title>Interaktionsoperand.60</title>
+			<desc>[Filmtitel passt]</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(15):26"/>
+				<v:ud v:nameU="msvShapeCategories" v:prompt="" v:val="VT4(Interaction operand)"/>
+				<v:ud v:nameU="UserWidth" v:prompt="" v:val="VT0(1.8897637795276):24"/>
+				<v:ud v:nameU="WidthMin" v:prompt="" v:val="VT0(0):26"/>
+				<v:ud v:nameU="msvNotMergeMasterByJustName" v:prompt="" v:val="VT0(1):26"/>
+				<v:ud v:nameU="WidthMin" v:prompt="" v:val="VT0(0):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="32" cy="661.486" width="64" height="17.6036"/>
+			<text x="4" y="663.89" class="st16" v:langID="1031"><v:paragraph/><v:tabList/>[Filmtitel passt]</text>		</g>
+		<g id="shape61-116" v:mID="61" v:groupContext="shape" v:layerMember="0" transform="translate(226.596,-509.143)">
+			<title>Nachricht.61</title>
+			<desc>getPlaytime</desc>
+			<v:userDefs>
+				<v:ud v:nameU="IsReturn" v:prompt="" v:val="VT0(0):5"/>
+				<v:ud v:nameU="IsAsync" v:prompt="" v:val="VT0(0):26"/>
+				<v:ud v:nameU="IsSelfMessage" v:prompt="" v:val="VT0(0):5"/>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="46.7717" cy="716.464" width="48.55" height="17.6036"/>
+			<path d="M0 716.46 L86.06 716.46" class="st9"/>
+			<rect v:rectContext="textBkgnd" x="27.4051" y="711.664" width="38.7334" height="9.59985" class="st11"/>
+			<text x="27.41" y="718.86" class="st12" v:langID="1031"><v:paragraph v:horizAlign="1"/><v:tabList/>getPlaytime</text>		</g>
+		<g id="shape63-123" v:mID="63" v:groupContext="shape" v:layerMember="0" transform="translate(320.14,-491.143)">
+			<title>Antwortnachricht</title>
+			<desc>Playtime</desc>
+			<v:userDefs>
+				<v:ud v:nameU="IsReturn" v:prompt="" v:val="VT0(1):5"/>
+				<v:ud v:nameU="IsAsync" v:prompt="" v:val="VT0(0):26"/>
+				<v:ud v:nameU="IsSelfMessage" v:prompt="" v:val="VT0(0):5"/>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="-46.7717" cy="716.464" width="40" height="17.6036"/>
+			<path d="M0 716.46 L-93.54 716.46" class="st13"/>
+			<rect v:rectContext="textBkgnd" x="-60.9256" y="711.664" width="28.3079" height="9.59985" class="st11"/>
+			<text x="-60.93" y="718.86" class="st12" v:langID="1031"><v:paragraph v:horizAlign="1"/><v:tabList/>Playtime</text>		</g>
+		<g id="shape65-130" v:mID="65" v:groupContext="shape" v:layerMember="0" transform="translate(218.093,-365.143)">
+			<title>Antwortnachricht.65</title>
+			<desc>Daten</desc>
+			<v:userDefs>
+				<v:ud v:nameU="IsReturn" v:prompt="" v:val="VT0(1):5"/>
+				<v:ud v:nameU="IsAsync" v:prompt="" v:val="VT0(0):26"/>
+				<v:ud v:nameU="IsSelfMessage" v:prompt="" v:val="VT0(0):5"/>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="-85.0394" cy="716.464" width="40" height="17.6036"/>
+			<path d="M0 716.46 L-170.08 716.46" class="st13"/>
+			<rect v:rectContext="textBkgnd" x="-94.8479" y="711.664" width="19.6169" height="9.59985" class="st11"/>
+			<text x="-94.85" y="718.86" class="st12" v:langID="1031"><v:paragraph v:horizAlign="1"/><v:tabList/>Daten</text>		</g>
+		<g id="shape66-137" v:mID="66" v:groupContext="shape" v:layerMember="0" transform="translate(48.0138,-347.143)">
+			<title>Asynchrone Nachricht</title>
+			<desc>erstellt Buchung</desc>
+			<v:userDefs>
+				<v:ud v:nameU="IsReturn" v:prompt="" v:val="VT0(0):5"/>
+				<v:ud v:nameU="IsAsync" v:prompt="" v:val="VT0(1):26"/>
+				<v:ud v:nameU="IsSelfMessage" v:prompt="" v:val="VT0(0):5"/>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="43.937" cy="717.598" width="62.85" height="17.6036"/>
+			<path d="M0 716.46 L87.87 716.46" class="st17"/>
+			<rect v:rectContext="textBkgnd" x="17.422" y="712.798" width="53.0302" height="9.59985" class="st11"/>
+			<text x="17.42" y="720" class="st12" v:langID="1031"><v:paragraph v:horizAlign="1"/><v:tabList/>erstellt Buchung</text>		</g>
+		<g id="shape67-144" v:mID="67" v:groupContext="shape" transform="translate(-579.159,591.557) rotate(-90)">
+			<title>Aktivierung.67</title>
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<rect x="0" y="715.046" width="222.236" height="8.50394" class="st8"/>
+		</g>
+		<g id="shape70-146" v:mID="70" v:groupContext="shape" v:layerMember="0" transform="translate(144.392,-329.143)">
+			<title>Nachricht.70</title>
+			<desc>reservieren(kategorie,anzahl</desc>
+			<v:userDefs>
+				<v:ud v:nameU="IsReturn" v:prompt="" v:val="VT0(0):5"/>
+				<v:ud v:nameU="IsAsync" v:prompt="" v:val="VT0(0):26"/>
+				<v:ud v:nameU="IsSelfMessage" v:prompt="" v:val="VT0(0):5"/>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="87.874" cy="716.464" width="103.09" height="17.6036"/>
+			<path d="M0 716.46 L168.27 716.46" class="st9"/>
+			<rect v:rectContext="textBkgnd" x="41.2358" y="711.664" width="93.2767" height="9.59985" class="st11"/>
+			<text x="41.24" y="718.86" class="st12" v:langID="1031"><v:paragraph v:horizAlign="1"/><v:tabList/>reservieren(kategorie,anzahl</text>		</g>
+		<g id="group72-153" transform="translate(400.927,-642.23)" v:mID="72" v:groupContext="group">
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(15):26"/>
+				<v:ud v:nameU="ShowActor" v:prompt="" v:val="VT0(0):5"/>
+				<v:ud v:nameU="ShowDestruction" v:prompt="" v:val="VT0(0):5"/>
+			</v:userDefs>
+			<title>Objektlebenslinie.72</title>
+			<desc>Saalplan</desc>
+			<g id="shape73-154" v:mID="73" v:groupContext="shape">
+				<title>Tabelle.73</title>
+				<rect x="0" y="698.039" width="51.0236" height="25.5118" class="st5"/>
+			</g>
+			<g id="shape74-156" v:mID="74" v:groupContext="shape" transform="translate(17.0079,-29.0551)">
+				<title>Tabelle.74</title>
+				<path d="M8.5 723.55 a0 0 0 1 1 0 0 a0 0 0 1 1 0 0 Z" class="st5"/>
+			</g>
+			<g id="shape75-158" v:mID="75" v:groupContext="shape" transform="translate(17.0079,576.749)">
+				<title>Tabelle.75</title>
+			</g>
+			<g id="shape76-160" v:mID="76" v:groupContext="shape" transform="translate(749.062,723.55) rotate(90)">
+				<title>Tabelle.76</title>
+				<path d="M0 723.55 L559.13 723.55" class="st6"/>
+			</g>
+			<g id="shape72-163" v:mID="72" v:groupContext="groupContent">
+				<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+				<v:textRect cx="25.5118" cy="710.794" width="51.03" height="25.5118"/>
+				<rect x="0" y="698.039" width="51.0236" height="25.5118" class="st5"/>
+				<text x="4.4" y="714.39" class="st7" v:langID="1031"><v:paragraph v:horizAlign="1"/><v:tabList/>Saalplan</text>			</g>
+		</g>
+		<g id="shape77-166" v:mID="77" v:groupContext="shape" transform="translate(-292.859,423.321) rotate(-90)">
+			<title>Aktivierung.77</title>
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<rect x="0" y="715.046" width="18" height="8.50394" class="st8"/>
+		</g>
+		<g id="shape78-168" v:mID="78" v:groupContext="shape" v:layerMember="0" transform="translate(328.644,-311.143)">
+			<title>Nachricht.78</title>
+			<desc>getFreeSeats(Kategorie)</desc>
+			<v:userDefs>
+				<v:ud v:nameU="IsReturn" v:prompt="" v:val="VT0(0):5"/>
+				<v:ud v:nameU="IsAsync" v:prompt="" v:val="VT0(0):26"/>
+				<v:ud v:nameU="IsSelfMessage" v:prompt="" v:val="VT0(0):5"/>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="46.7717" cy="716.464" width="88.05" height="17.6036"/>
+			<path d="M0 716.46 L86.06 716.46" class="st9"/>
+			<rect v:rectContext="textBkgnd" x="7.6533" y="711.664" width="78.2369" height="9.59985" class="st11"/>
+			<text x="7.65" y="718.86" class="st12" v:langID="1031"><v:paragraph v:horizAlign="1"/><v:tabList/>getFreeSeats(Kategorie)</text>		</g>
+		<g id="shape79-175" v:mID="79" v:groupContext="shape" v:layerMember="0" transform="translate(422.187,-293.143)">
+			<title>Antwortnachricht.79</title>
+			<desc>FreeSeats</desc>
+			<v:userDefs>
+				<v:ud v:nameU="IsReturn" v:prompt="" v:val="VT0(1):5"/>
+				<v:ud v:nameU="IsAsync" v:prompt="" v:val="VT0(0):26"/>
+				<v:ud v:nameU="IsSelfMessage" v:prompt="" v:val="VT0(0):5"/>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="-46.7717" cy="716.464" width="41.54" height="17.6036"/>
+			<path d="M0 716.46 L-93.54 716.46" class="st13"/>
+			<rect v:rectContext="textBkgnd" x="-62.6326" y="711.664" width="31.7222" height="9.59985" class="st11"/>
+			<text x="-62.63" y="718.86" class="st12" v:langID="1031"><v:paragraph v:horizAlign="1"/><v:tabList/>FreeSeats</text>		</g>
+		<g id="group80-182" transform="translate(494.471,-642.23)" v:mID="80" v:groupContext="group">
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(15):26"/>
+				<v:ud v:nameU="ShowActor" v:prompt="" v:val="VT0(0):5"/>
+				<v:ud v:nameU="ShowDestruction" v:prompt="" v:val="VT0(0):5"/>
+			</v:userDefs>
+			<title>Objektlebenslinie.80</title>
+			<desc>Platz</desc>
+			<g id="shape81-183" v:mID="81" v:groupContext="shape">
+				<title>Tabelle.81</title>
+				<rect x="0" y="698.039" width="51.0236" height="25.5118" class="st5"/>
+			</g>
+			<g id="shape82-185" v:mID="82" v:groupContext="shape" transform="translate(17.0079,-29.0551)">
+				<title>Tabelle.82</title>
+				<path d="M8.5 723.55 a0 0 0 1 1 0 0 a0 0 0 1 1 0 0 Z" class="st5"/>
+			</g>
+			<g id="shape83-187" v:mID="83" v:groupContext="shape" transform="translate(17.0079,605.096)">
+				<title>Tabelle.83</title>
+			</g>
+			<g id="shape84-189" v:mID="84" v:groupContext="shape" transform="translate(749.062,723.55) rotate(90)">
+				<title>Tabelle.84</title>
+				<path d="M0 723.55 L587.48 723.55" class="st6"/>
+			</g>
+			<g id="shape80-192" v:mID="80" v:groupContext="groupContent">
+				<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+				<v:textRect cx="25.5118" cy="710.794" width="51.03" height="25.5118"/>
+				<rect x="0" y="698.039" width="51.0236" height="25.5118" class="st5"/>
+				<text x="13.42" y="714.39" class="st7" v:langID="1031"><v:paragraph v:horizAlign="1"/><v:tabList/>Platz</text>			</g>
+		</g>
+		<g id="shape85-195" v:mID="85" v:groupContext="shape" transform="translate(-199.316,459.321) rotate(-90)">
+			<title>Aktivierung.85</title>
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<rect x="0" y="715.046" width="18" height="8.50394" class="st8"/>
+		</g>
+		<g id="shape86-197" v:mID="86" v:groupContext="shape" v:layerMember="0" transform="translate(328.644,-275.143)">
+			<title>Nachricht.86</title>
+			<desc>bookSeat</desc>
+			<v:userDefs>
+				<v:ud v:nameU="IsReturn" v:prompt="" v:val="VT0(0):5"/>
+				<v:ud v:nameU="IsAsync" v:prompt="" v:val="VT0(0):26"/>
+				<v:ud v:nameU="IsSelfMessage" v:prompt="" v:val="VT0(0):5"/>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="93.5433" cy="716.464" width="40.26" height="17.6036"/>
+			<path d="M0 716.46 L179.61 716.46" class="st9"/>
+			<rect v:rectContext="textBkgnd" x="78.3209" y="711.664" width="30.445" height="9.59985" class="st11"/>
+			<text x="78.32" y="718.86" class="st12" v:langID="1031"><v:paragraph v:horizAlign="1"/><v:tabList/>bookSeat</text>		</g>
+		<g id="shape87-204" v:mID="87" v:groupContext="shape" v:layerMember="0" transform="translate(515.73,-257.143)">
+			<title>Antwortnachricht.87</title>
+			<desc>true</desc>
+			<v:userDefs>
+				<v:ud v:nameU="IsReturn" v:prompt="" v:val="VT0(1):5"/>
+				<v:ud v:nameU="IsAsync" v:prompt="" v:val="VT0(0):26"/>
+				<v:ud v:nameU="IsSelfMessage" v:prompt="" v:val="VT0(0):5"/>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="-93.5433" cy="716.464" width="40" height="17.6036"/>
+			<path d="M0 716.46 L-187.09 716.46" class="st13"/>
+			<rect v:rectContext="textBkgnd" x="-100.369" y="711.664" width="13.6522" height="9.59985" class="st11"/>
+			<text x="-100.37" y="718.86" class="st12" v:langID="1031"><v:paragraph v:horizAlign="1"/><v:tabList/>true</text>		</g>
+		<g id="shape88-211" v:mID="88" v:groupContext="shape" v:layerMember="0" transform="translate(320.14,-239.143)">
+			<title>Antwortnachricht.88</title>
+			<desc>Seats</desc>
+			<v:userDefs>
+				<v:ud v:nameU="IsReturn" v:prompt="" v:val="VT0(1):5"/>
+				<v:ud v:nameU="IsAsync" v:prompt="" v:val="VT0(0):26"/>
+				<v:ud v:nameU="IsSelfMessage" v:prompt="" v:val="VT0(0):5"/>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="-87.874" cy="716.464" width="40" height="17.6036"/>
+			<path d="M0 716.46 L-175.75 716.46" class="st13"/>
+			<rect v:rectContext="textBkgnd" x="-96.5224" y="711.664" width="17.2966" height="9.59985" class="st11"/>
+			<text x="-96.52" y="718.86" class="st12" v:langID="1031"><v:paragraph v:horizAlign="1"/><v:tabList/>Seats</text>		</g>
+		<g id="group89-218" transform="translate(69.2736,-154.67)" v:mID="89" v:groupContext="group">
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<title>Schleifenfragment.89</title>
+			<g id="shape89-219" v:mID="89" v:groupContext="groupContent">
+				<rect x="0" y="652.684" width="620.787" height="70.8661" class="st1"/>
+			</g>
+			<g id="shape90-221" v:mID="90" v:groupContext="shape" transform="translate(0,-53.2626)">
+				<title>Tabelle.90</title>
+				<desc>Schleife</desc>
+				<v:userDefs>
+					<v:ud v:nameU="FoldSize" v:prompt="" v:val="VT0(0.098425196850394):24"/>
+					<v:ud v:nameU="BackFillColor" v:prompt="" v:val="VT5(#96afcf)"/>
+					<v:ud v:nameU="BackLineColor" v:prompt="" v:val="VT5(#1f477d)"/>
+					<v:ud v:nameU="BackCharColor" v:prompt="" v:val="VT5(#000000)"/>
+					<v:ud v:nameU="DarkerColor" v:prompt="" v:val="VT5(#000000)"/>
+					<v:ud v:nameU="BackFillColor" v:prompt="" v:val="VT5(#a5a5a5)"/>
+					<v:ud v:nameU="BackLineColor" v:prompt="" v:val="VT5(#a5a5a5)"/>
+					<v:ud v:nameU="BackCharColor" v:prompt="" v:val="VT5(#ffffff)"/>
+					<v:ud v:nameU="DarkerColor" v:prompt="" v:val="VT5(#a5a5a5)"/>
+				</v:userDefs>
+				<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+				<v:textRect cx="32" cy="714.749" width="64" height="17.6036"/>
+				<path d="M0 723.55 L56.91 723.55 L64 716.46 L64 705.95 L0 705.95 L0 723.55 Z" class="st2"/>
+				<text x="4" y="717.15" class="st3" v:langID="1031"><v:paragraph/><v:tabList/>Schleife</text>			</g>
+			<g id="shape91-224" v:mID="91" v:groupContext="shape" transform="translate(0,-35.659)">
+				<title>Tabelle.91</title>
+				<desc>jeder Platz</desc>
+				<v:userDefs>
+					<v:ud v:nameU="msvQuickStyleVariationRestore" v:prompt="" v:val="VT0(2):26"/>
+				</v:userDefs>
+				<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+				<v:textRect cx="32" cy="714.749" width="64" height="17.6036"/>
+				<text x="4" y="717.15" class="st4" v:langID="1031"><v:paragraph/><v:tabList/>jeder Platz</text>			</g>
+		</g>
+		<g id="shape92-226" v:mID="92" v:groupContext="shape" v:layerMember="0" transform="translate(144.392,-203.143)">
+			<title>Nachricht.92</title>
+			<desc>erstellt</desc>
+			<v:userDefs>
+				<v:ud v:nameU="IsReturn" v:prompt="" v:val="VT0(0):5"/>
+				<v:ud v:nameU="IsAsync" v:prompt="" v:val="VT0(0):26"/>
+				<v:ud v:nameU="IsSelfMessage" v:prompt="" v:val="VT0(0):5"/>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="236.693" cy="716.464" width="40" height="17.6036"/>
+			<path d="M0 716.46 L465.91 716.46" class="st9"/>
+			<rect v:rectContext="textBkgnd" x="225.238" y="711.664" width="22.9095" height="9.59985" class="st11"/>
+			<text x="225.24" y="718.86" class="st12" v:langID="1031"><v:paragraph v:horizAlign="1"/><v:tabList/>erstellt</text>		</g>
+		<g id="shape93-233" v:mID="93" v:groupContext="shape" transform="translate(-97.2688,567.321) rotate(-90)">
+			<title>Aktivierung.93</title>
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<rect x="0" y="715.046" width="72" height="8.50394" class="st8"/>
+		</g>
+		<g id="shape94-235" v:mID="94" v:groupContext="shape" v:layerMember="0" transform="translate(617.778,-167.143)">
+			<title>Antwortnachricht.94</title>
+			<v:userDefs>
+				<v:ud v:nameU="IsReturn" v:prompt="" v:val="VT0(1):5"/>
+				<v:ud v:nameU="IsAsync" v:prompt="" v:val="VT0(0):26"/>
+				<v:ud v:nameU="IsSelfMessage" v:prompt="" v:val="VT0(0):5"/>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<path d="M0 716.46 L-473.39 716.46" class="st13"/>
+		</g>
+		<g id="shape95-240" v:mID="95" v:groupContext="shape" v:layerMember="0" transform="translate(135.888,-131.143)">
+			<title>Nachricht.95</title>
+			<desc>Buchungbestätigung</desc>
+			<v:userDefs>
+				<v:ud v:nameU="IsReturn" v:prompt="" v:val="VT0(0):5"/>
+				<v:ud v:nameU="IsAsync" v:prompt="" v:val="VT0(0):26"/>
+				<v:ud v:nameU="IsSelfMessage" v:prompt="" v:val="VT0(0):5"/>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(15):26"/>
+				<v:ud v:nameU="IsReturn" v:prompt="" v:val="VT0(1):5"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="-43.937" cy="716.464" width="76.41" height="17.6036"/>
+			<path d="M0 716.46 L-87.87 716.46" class="st13"/>
+			<rect v:rectContext="textBkgnd" x="-77.2312" y="711.664" width="66.5887" height="9.59985" class="st11"/>
+			<text x="-77.23" y="718.86" class="st12" v:langID="1031"><v:paragraph v:horizAlign="1"/><v:tabList/>Buchungbestätigung</text>		</g>
+	</g>
+</svg>
