@@ -30,6 +30,8 @@ Extremeprogramming ?
 
 Backlog wird in JIRA gelöst 
 
+Todo: Backlog ausbauen 
+
 ## Website 
 
 ### Datenbank 
@@ -42,7 +44,7 @@ Versionskontrolle ?
 
 Finn Suliman 
 
-Java und Python 
+Java mit Maven und entsprechenden Dependencies 
 
 Unittest 
 
@@ -52,7 +54,9 @@ Json-Struktur mit Frontend abstimmen
 
 Johannes, Laura und Robin 
 
-ANT Bootstrap React? 
+HTML, CSS, JS eventuell Bootstrap 
+
+Jest als UnitTest
 
 
 
