@@ -6,8 +6,9 @@ pipeline {
             steps {
 		dir("Test/test") {
     			sh "pwd"
+                 sh 'mvn -B -DskipTests clean package'
 	    	}
-                sh 'mvn -B -DskipTests clean package'
+               
             }
         }
     }
