@@ -12,14 +12,14 @@ pipeline {
         }
         stage('Test') {
             steps {
-                dir("Test/test") {
+                dir("Quellcode/Backend/Java") {
                     sh "pwd"
                     sh 'mvn test'
                 }
             }
             post {
                 always {
-                    dir("Test/test") {
+                    dir("Quellcode/Backend/Java") {
                         junit 'target/surefire-reports/*.xml'
                     }
                 }
