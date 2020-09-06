@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Build') { 
             steps {
-                dir("Test/test") {
+                dir("Quellcode/Backend/Java") {
                     sh "pwd"
                     sh 'mvn -B -DskipTests clean package'
                 }
