@@ -11,9 +11,12 @@ for (let row = 0; row < maxRow; row++) {
         var tableData = document.createElement("td");
         var div = document.createElement("div");
         div.className = "moviePoster";
-        tableData.appendChild(div);
-        tableRow.appendChild(tableData);
+        table.appendChild(div);
+        // tableData.appendChild(div);
+        // tableRow.appendChild(tableData);
     }
-    table.appendChild(tableRow);
+    // table.appendChild(tableRow);
 }
+
+
 
