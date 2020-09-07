@@ -14,6 +14,11 @@ for (let row = 0; row < maxRow; row++) {
         var tableData = document.createElement("td");
         var div = document.createElement("div");
         var divText = document.createElement("div");
+        divText.className = "divText";
+        var text = document.createElement("p");
+        text.className = "title";
+        text.innerHTML = "James Bond - No Time To Die";
+        divText.appendChild(text);
         div.className = "moviePoster";
         div.appendChild(image);
         div.appendChild(divText);
