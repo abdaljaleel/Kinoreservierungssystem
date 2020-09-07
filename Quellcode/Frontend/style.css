@@ -1,1 +1,35 @@
-/* Put your CSS here */
+/* Styles */
+body{
+    background-color: #E0E5EC;
+}
+h1 {
+    text-align: center;
+    font-size: 80px;
+    color: rgb(163,177,198,0.6);
+}
+
+#moviesOverview {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 200px;
+}
+
+.moviePoster {
+    border-radius: 10px;
+    width: 250px;
+    height: 350px;
+    margin-left: 30px;
+    margin-bottom: 50px;
+    /* Basic styling and alignment */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* For Neumorphism Effect */
+    background-color:#E0E5EC;
+    box-shadow: 9px 9px 16px rgb(163,177,198,0.6), -9px -9px 16px    rgba(255,255,255, 0.5);
+    /* For Neumorphism Effect */
+    transition: all 1.8s ease;
+}
+.moviePoster:hover{
+    transform: scale(1.1);
+}
