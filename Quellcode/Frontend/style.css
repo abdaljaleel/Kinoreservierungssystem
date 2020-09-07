@@ -35,3 +35,8 @@ h1 {
 .moviePoster:hover{
     transform: scale(1.05);
 }
+
+.image {
+    width: 250px;
+    height: 200px;
+}
