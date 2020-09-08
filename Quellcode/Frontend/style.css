@@ -36,6 +36,7 @@ h1 {
 }
 .moviePoster:hover{
     transform: scale(1.05);
+    cursor: pointer;
 }
 
 .moviePosterTitle {
@@ -104,4 +105,60 @@ h1 {
   background-color: #E0E5EC;
   color: white;
   transform: rotateY(180deg);
+}
+
+/* Modal for Movie */
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 50px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: #e0e5ec81; /* Fallback color */
+  background-color: #e0e5ec00; /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  animation-name: zoom;
+  animation-duration: 1s;
+  margin: auto;
+  padding: 20px;
+  width: 70%;
+  height: 70%;
+
+  border-radius: 10px;
+  justify-content: center;
+  align-items: center;
+  /* For Neumorphism Effect */
+  background-color:#E0E5EC;
+  box-shadow: 9px 9px 16px rgb(163,177,198,0.6), -9px -9px 16px    rgba(255,255,255, 0.5);
+  /* For Neumorphism Effect */
+  /* transition: all 0.5s ease; */
+}
+
+@keyframes zoom {
+    from {transform:scale(0)}
+    to {transform:scale(1)}
+}
+
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
 }
