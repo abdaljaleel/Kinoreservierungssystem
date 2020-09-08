@@ -162,3 +162,11 @@ h1 {
   text-decoration: none;
   cursor: pointer;
 }
+
+
+.seat {
+  width: 30px;
+  height: 30px;
+  background-color: lightgreen;
+  cursor: pointer;
+}

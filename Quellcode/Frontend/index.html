@@ -2,26 +2,67 @@
 <!DOCTYPE HTML>
 <meta charset="UTF-8">
 <html>
-    <head>
-        <link rel="stylesheet" href="style.css">
-        <title>Kinosystem</title>
-    </head>
-    <body>
-        <h1>Kino XY</h1>
-        
-        <!-- The Modal -->
-        <div id="myModal" class="modal">
-        
-            <!-- Modal content -->
-            <div class="modal-content" >
-                <span class="close">&times;</span>
-                <p id="modalMovieDetails">Some text in the Modal..</p>
-            </div>
-        
-        </div>
-        <div id="posterTable">
 
-            <!-- <div class="flip-card">
+<head>
+    <link rel="stylesheet" href="style.css">
+    <title>Kinosystem</title>
+</head>
+
+<body>
+    <h1>Kino XY</h1>
+
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div id="movieModalContent">
+                <p>Sitzplätze auswählen</p>
+                <p><strong>Ticket:</strong></p>
+                <table id="movieSeatChooser">
+                    <tr>
+                        <td>
+                            <div style="width:30px;height:30px;background-color: lightgreen;"></div>
+                        </td>
+                    </tr>
+                </table>
+                <p>
+                    <button onclick="displayBookingScreen()">Ticket Buchen</button>
+                </p>
+
+                <!-- <table>
+                    <td>
+                        <p id="modalMovieDetails">James Bond - No Time to Die</p>
+                        <p><strong>Zusammenfassung:</strong></p>
+                        <p>Bond travels to Turkey and meets Ali Kerim Bey, the MI6 officer in Turkey. Between them, they
+                            obtain the Lektor, and the three escape with the device on the Orient Express. However, they
+                            are
+                            followed by Grant, who kills Kerim Bey and a Soviet security officer. Grant pretends to be
+                            another British agent and meets Bond. Over dinner Grant drugs Romanova, then overcomes Bond.
+                            Bond tricks Grant into opening Bond's attaché case in the manner that detonates its tear gas
+                            booby trap, allowing Bond to attack and kill him. Bond and Romanova escape with the Lektor
+                            to
+                            Venice. Rosa Klebb, disguised as a hotel maid, attempts to steal the Lektor and kill Bond,
+                            but
+                            ends up being shot by Romanova.</p>
+                        <p>
+                            <button onclick="displayBookingScreen()">Ticket Buchen</button>
+                        </p>
+                    </td>
+                    <td>
+                        <iframe width="420" height="315" src="https://www.youtube.com/embed/jE-LhbK4Ug4">
+                        </iframe>
+                    </td>
+                </table> -->
+            </div>
+
+        </div>
+
+    </div>
+    <div id="posterTable">
+
+        <!-- <div class="flip-card">
                 <div class="flip-card-inner">
                     <div class="flip-card-front">
                         <img class="moviePosterImg" src="JamesBond.png" alt="JamesBond">
@@ -34,8 +75,9 @@
                 </div>
             </div> -->
 
-        </div>
+    </div>
 
-    </body>
-    <script src="main.js"></script>
+</body>
+<script src="main.js"></script>
+
 </html>

@@ -46,6 +46,31 @@ window.onclick = function (event) {
 
 function displayMovieDetails(movie) {
     modal.style.display = "block";
-    document.getElementById("modalMovieDetails").innerHTML = movie;
+    // document.getElementById("modalMovieDetails").innerHTML = movie;
+}
+
+function getSeatElement() {
+    const seat = document.createElement("td");
+    const div = document.createElement("div");
+    div.className = "seat"; // using CSS
+    div.addEventListener("click", function(){
+        div.style.backgroundColor = div.style.backgroundColor == "red" ? "lightgreen" : "red";
+        console.log(seat);
+        console.log(seat.style);
+    });
+    seat.appendChild(div);
+    return seat;
+}
+
+function displayBookingScreen(movie) {
+    var modal = document.getElementById("movieSeatChooser");
+    for (var i = 0; i < 5; i++) {
+        var row = document.createElement("tr");
+        for (var j = 0; j < 6; j++) {
+            // add seat
+            row.appendChild(getSeatElement());
+        }
+        modal.appendChild(row);
+    }
 }
 
