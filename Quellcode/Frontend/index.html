@@ -32,20 +32,65 @@
 
             <!-- Modal content -->
             <div class="modal-content">
-            <div class="modal-header">
-                <span class="close">&times;</span>
-                <h2>Modal Header</h2>
-            </div>
-            <div class="modal-body">
-                <p>Some text in the Modal Body</p>
-                <p id="movieTitle">Some other text...</p>
-            </div>
-            <div class="modal-footer">
-                <h3>Modal Footer</h3>
-            </div>
+                <div class="modal-header">
+                    <span class="close">&times;</span>
+                    <h2 class="modal-heading">Modal Header</h2>
+                </div>
+                <div class="modal-body" id="modal-body-ID">
+                    <p>Some text in the Modal Body</p>
+                    <p id="movieTitle">Some other text...</p>
+                </div>
+                <div class="modal-footer">
+                </div>
             </div>
         
         </div>
+
+        <!-- The Modal -->
+    <div id="bookingModal" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="close-booking">&times;</span>
+                <h2 class="modal-booking-heading">Modal Header</h2>
+            </div>
+            <div class="modal-body">
+                <p></p>
+                <p><strong>Verfügbare Plätze:</strong></p>
+                <table id="movieSeatChooser">
+                    <tr>
+                        <td>
+                            <div style="width:30px;height:30px;background-color: lightgreen;"></div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <p>
+                    <button class="button-confirmation">Auswahl bestätigen</button>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- <div id="bookingModal" class="modal">
+
+        <div class="modal-content">
+        <div class="modal-header">
+            <span class="close">&times;</span>
+            <h2 class="modal-header-headline">Modal Header</h2>
+        </div>
+        <div class="modal-body">
+            <p>Some text in the Modal Body</p>
+            <p id="movieTitle">Some other text...</p>
+        </div>
+        <div class="modal-footer-booking">
+            <h3>Modal Footer</h3>
+        </div>
+        </div>
+    
+    </div> -->
 
     </body>
     <script src="main.js"></script>
