@@ -65,7 +65,7 @@ function getSeatElement() {
     const seat = document.createElement("td");
     const div = document.createElement("div");
     div.className = "seat"; // using CSS
-    div.addEventListener("click", function(){
+    div.addEventListener("click", function () {
         div.style.backgroundColor = div.style.backgroundColor == "red" ? "lightgreen" : "red";
         console.log(seat);
         console.log(seat.style);
@@ -86,3 +86,8 @@ function displayBookingScreen(movie) {
     }
 }
 
+
+var xmlHttp = new XMLHttpRequest();
+xmlHttp.open("GET", "http://localhost:8080/movies", false); // false for synchronous request
+xmlHttp.send(null);
+console.log(xmlHttp.responseText);
