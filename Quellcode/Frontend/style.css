@@ -9,6 +9,16 @@ h1 {
     color: #a28089
 }
 
+#titleCanvas {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  /* font-size: 80px; */
+  /* color: rgb(163,177,198,0.6); */
+  color: #a28089
+}
+
 #posterTable {
     margin-left: 10%;
     margin-right: 10%;

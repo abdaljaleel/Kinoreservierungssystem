@@ -1,5 +1,17 @@
 // Code
 
+// Draw Title
+var titleCanvas = document.getElementById("titleCanvas");
+var ctx = titleCanvas.getContext("2d");
+ctx.font = "80px Arial";
+var gradient = ctx.createLinearGradient(0, 0, titleCanvas.width, 0);
+gradient.addColorStop("0", "magenta");
+gradient.addColorStop("0.5", "blue");
+gradient.addColorStop("1.0", "red");
+// Fill with gradient
+ctx.fillStyle = gradient;
+ctx.fillText("Kino XY", 0, 90);
+
 const table = document.getElementById("posterTable");
 
 var maxRow = 2;
