@@ -11,15 +11,19 @@ import saue.kinoticketreservierungssystem.entity.Movie;
 
 import java.util.List;
 
+@CrossOrigin(origins = "*")
 @RestController
 public class MovieController {
     @Autowired
     private MovieRepository movieRepository;
 
-    @CrossOrigin(origins = "*")
     @GetMapping(value= "/movie", produces= MediaType.APPLICATION_JSON_VALUE)
     public List<Movie> movie() {
-
         return (List<Movie>) movieRepository.findAll();
+    }
+
+    @GetMapping(value= "/movie/id", produces= MediaType.APPLICATION_JSON_VALUE)
+    public Movie movieId() {
+        return movieRepository.findById(1);
     }
 }
