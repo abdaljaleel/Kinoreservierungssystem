@@ -121,7 +121,7 @@ h1 {
 
 /* The Modal (background) */
 .modal {
-  display: none; /* Hidden by default */
+  display: block; /* Hidden by default */
   position: fixed; /* Stay in place */
   z-index: 1; /* Sit on top */
   padding-top: 50px; /* Location of the box */
@@ -173,10 +173,61 @@ h1 {
   cursor: pointer;
 }
 
+.seats-modal {
+  width: 90%;
+  height: auto;
+  align-content: center;
+  align-items: center;
+  padding: 5%;
+}
+
+#movieSeatInfo {
+  padding: 10px;
+  flex-grow: 1;
+}
+
+.price-table-wrapper {
+  height: 250px;
+  overflow: auto;
+}
+.price-table {
+  width: 400px;
+}
+.price-table-data {
+  padding: 10px;
+}
+.price-table-data:last-child {
+  text-align: end;
+}
+/* .price-table-sum {
+  padding: 10px;
+  width: 400px;
+} */
+
+
+
+#movieSeatChooser {
+  width: 250px;
+  padding: 10px;
+}
 
 .seat {
+  margin: 5px;
   width: 30px;
   height: 30px;
   background-color: lightgreen;
   cursor: pointer;
+}
+
+
+#seat-handicap .seat {
+  background-color: lightskyblue;
+  /* width: 100px; */
+}
+
+.movieScreen {
+  width: 100px;
+  height: 10px;
+  background-color: gray;
+  margin-bottom: 10px;
 }

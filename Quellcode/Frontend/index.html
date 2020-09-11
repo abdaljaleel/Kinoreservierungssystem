@@ -4,7 +4,9 @@
 <html>
 
 <head>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet/less" type="text/css" href="styles.less" />
+    <!-- <link rel="stylesheet" href="style.css"> -->
     <title>Kinosystem</title>
 </head>
 
@@ -14,25 +16,41 @@
 
     <!-- The Modal -->
     <div id="myModal" class="modal">
-
         <!-- Modal content -->
         <div class="modal-content">
             <span class="close">&times;</span>
-            <div id="movieModalContent">
-                <p>Sitzplätze auswählen</p>
-                <p><strong>Ticket:</strong></p>
-                <table id="movieSeatChooser">
-                    <tr>
-                        <td>
-                            <div style="width:30px;height:30px;background-color: lightgreen;"></div>
-                        </td>
-                    </tr>
-                </table>
-                <p>
-                    <button onclick="displayBookingScreen()">Ticket Buchen</button>
-                </p>
+            <!-- Sitzplatzreservierungs-Popup -->
+            <h3>Sitzplätze auswählen</h3>
 
-                <!-- <table>
+            <div class="seats-modal">
+                <div style="display: block; float: left;">
+                    <h3>Kino 11</h3>
+                    <table id="movieSeatChooser"></table>
+                </div>
+                <div id="movieSeatInfo">
+                    <p><strong>Aktuelle Auswahl: <span id="totalNoTickets">0</span> Tickets</strong></p>
+                    <div>
+                        <div class="price-table-wrapper">
+                            <table id="ticketPriceTable" class="price-table">
+                                <!-- <tr class="price-table-row">
+                                        <td class="price-table-data">2x James Bond 007</td>
+                                        <td class="price-table-data">28,00 €</td>
+                                    </tr> -->
+                            </table>
+                        </div>
+                        <table class="price-table">
+                            <tr class="price-table-row">
+                                <td class="price-table-data">Summe</td>
+                                <td id="price-sum" class="price-table-data">0.00 €</td>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <button id="btn-continue">Weiter</button>
+            </div>
+
+            <!-- <table>
                     <td>
                         <p id="modalMovieDetails">James Bond - No Time to Die</p>
                         <p><strong>Zusammenfassung:</strong></p>
@@ -56,7 +74,7 @@
                         </iframe>
                     </td>
                 </table> -->
-            </div>
+
 
         </div>
 
@@ -79,6 +97,7 @@
     </div>
 
 </body>
+<script src="//cdn.jsdelivr.net/npm/less"></script>
 <script src="main.js"></script>
 
 </html>
