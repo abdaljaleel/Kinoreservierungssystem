@@ -1,6 +1,11 @@
 /* Styles */
 body{
     background-color: #E0E5EC;
+    background-image: url(static/8.jpg);
+    margin: 10px auto;
+    width: 100%;
+    clear: :both;
+
 }
 h1 {
     text-align: center;
@@ -308,4 +313,44 @@ i {
 ::-webkit-scrollbar-thumb {
   background: #70655e; 
   border-radius: 10px;
+}
+
+/*---------------MEIN HEADER------------*/
+.mainheader nav {
+  background-color: #c0392b;
+  width: 100%;
+  height: 40px;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;#
+  margin: 0 auto;
+  font-size: 90%;
+  font-family: Arial, 'Lucida Sans Unicode';
+  line-height: 1.5;
+  text-align: left;
+
+}
+a{text-decoration: none;}
+
+.mainheader nav ul{
+  text-align: center;
+  list-style: none;
+  margin: 0 auto;
+}
+
+.mainheader nav ul li{
+  display: inline;
+
+}
+
+.mainheader, a:link, a:visited{
+  color: white;
+  padding: 10px 40px;
+  display: inline-block;
+  height: 20px;
+}
+.mainheader a:hover, .mainheader a:active{
+  color: blue;
+  background-color: #f55233; 
+  text-shadow: none;
 }
