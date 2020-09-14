@@ -14,19 +14,33 @@ ctx.fillStyle = gradient;
 ctx.fillText("Kino XY", 0, 90);
 
 
+// Prepare Modal
+var modal = document.getElementById("main-modal");
+var span = document.getElementsByClassName("close")[0];
+// When the user clicks on <span> (x), close the modal
+span.onclick = function () {
+    closeModal();
+}
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function (event) {
+    if (event.target == modal) {
+        closeModal();
+    }
+}
+
+
 // Paypal Element
 function showPaypal() {
     // calculate final sum for payment
     let priceEur = 0;
     selectedSeats.forEach(seat => priceEur += seat.price);
-    // console.log(priceEur);
+    document.getElementById("paypal-button-container").innerHTML = "";
     paypal.Buttons({
         style: {
             shape: 'rect',
             color: 'gold',
             layout: 'vertical',
             label: 'pay',
-
         },
         // TODO: geht nicht richtig (Error in Konsole)
         createOrder: function (data, actions) {
@@ -47,19 +61,22 @@ function showPaypal() {
             });
         }
     }).render('#paypal-button-container');
-
 }
 
 // Continue Button
-var modalWindowState = "seats";
+var modalWindowState = "overview";
 const btnContinue = document.getElementById("btn-continue");
 btnContinue.addEventListener("click", function () {
-    if (modalWindowState === "seats") {
+    if(modalWindowState === "overview") {
+        document.getElementById("modal-window-overview").style.display = "none";
+        document.getElementById("modal-window-seats").style.display = "block";
+        modalWindowState = "seats";
+    } else if (modalWindowState === "seats") {
         // get selected seats for summary
         document.getElementById("seats-prices-summary").innerHTML = document.getElementById("seats-prices").innerHTML;
         // go to payment screen
-        document.getElementById("seats-popup").style.display = "none";
-        document.getElementById("payment-popup").style.display = "block";
+        document.getElementById("modal-window-seats").style.display = "none";
+        document.getElementById("modal-window-payment").style.display = "block";
         showPaypal();
         btnContinue.style.display = "none";
         modalWindowState = "booking";
@@ -77,16 +94,15 @@ btnBack.addEventListener("click", function () {
         closeModal();
     } else if (modalWindowState === "seats") {
         // go back to overview window
-        document.getElementById("seats-popup").style.display = "none";
-        // document.getElementById("overview").style.display = "block";
+        document.getElementById("modal-window-seats").style.display = "none";
+        document.getElementById("modal-window-overview").style.display = "block";
         modalWindowState = "overview";
-        closeModal();
     } else if (modalWindowState === "booking") {
         // go back to seats window
         document.getElementById("btn-continue").style.display = "block";
-        document.getElementById("payment-popup").style.display = "none";
-        document.getElementById("paypal-button-container").innerHTML = "";
-        document.getElementById("seats-popup").style.display = "block";
+        document.getElementById("modal-window-payment").style.display = "none";
+        // document.getElementById("paypal-button-container").innerHTML = "";
+        document.getElementById("modal-window-seats").style.display = "block";
         modalWindowState = "seats";
     }
 });
@@ -131,28 +147,10 @@ for (let row = 0; row < maxRow; row++) {
     // table.appendChild(tableRow);
 }
 
-// Get the modal
-var modal = document.getElementById("myModal");
-
-// Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
-
-// When the user clicks on <span> (x), close the modal
-span.onclick = function () {
-    closeModal();
-}
-
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function (event) {
-    if (event.target == modal) {
-        closeModal();
-    }
-}
-
 function displayMovieDetails(movie) {
+    // show main modal
     modal.style.display = "block";
-    // TODO: display first screen, not directly the booking screen
-    displayBookingScreen(movie);
+    document.getElementById("modal-window-overview").style.display = "block";
 }
 
 
@@ -286,7 +284,9 @@ function removeTicket(movie, seatNo, category) {
 
 
 
-displayMovieDetails("James Bond 007 - No Time to Die");
+// displayMovieDetails("James Bond 007 - No Time to Die");
+
+
 
 
 // var xmlHttp = new XMLHttpRequest();
