@@ -2,126 +2,58 @@
 <!DOCTYPE HTML>
 <meta charset="UTF-8">
 <html>
-    <head>
-        <link rel="stylesheet" href="style.css">
-        <title>Kinosystem</title>
-        <script src="https://kit.fontawesome.com/3152236ba2.js" crossorigin="anonymous"></script>
-    </head>
-    <body>
-        <h1>Kino XY</h1>
-        
-        <div id="posterTable">
 
-            <!-- <div class="flip-card">
-                <div class="flip-card-inner">
-                    <div class="flip-card-front">
-                        <img class="moviePosterImg" src="JamesBond.png" alt="JamesBond">
-                    </div>
-                    <div class="flip-card-back">
-                        <h3>James Bond: No Time to Die</h1>
-                        <p>18:00 Uhr</p>
-                        <p>Kino XY</p>
-                    </div>
-                </div>
-            </div> -->
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet/less" type="text/css" href="styles.less" />
+    <title>Kinosystem</title>
+</head>
 
-        </div>
+<body>
+    <canvas id="titleCanvas"></canvas>
 
-        <!-- The Modal -->
-        <div id="myModal" class="modal">
+    <!-- Navbar -->
 
-            <!-- Modal content -->
-            <div class="modal-content">
-                <div class="modal-header">
-                    <span class="close">&times;</span>
-                    <h2 class="modal-heading">Modal Header</h2>
-                </div>
-                <div class="modal-body" id="modal-body-ID">
-                    <div class="movie-description-left">
-                        <p class="movie-description-headings">Beschreibung</p>
-                        <div class="movie-description">
-                            <p class="movie-description-content-div">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
-                        </div>
-                    </div>
-                    <div class="movie-description-center">
-                        <div class="movie-fsk">
-                            <i class="fas fa-2x fa-user-slash"></i>
-                            <a class="movie-description-content">12</a>
-                        </div>
-                        <div class="movie-length">
-                            <i class="fas fa-2x fa-stopwatch"></i>
-                            <a class="movie-description-content">120</a>
-                        </div>
-                        <div class="movie-genre">
-                            <i class="fas fa-2x fa-info-circle"></i>
-                            <a class="movie-description-content">Action</a>
-                        </div>
-                        <div class="movie-actors">
-                            <i class="fas fa-2x fa-users"></i>
-                            <a class="movie-description-content">Daniel Craig</a><p></p>
-                            <a class="movie-description-content">Daniel Craig</a>
-                        </div>
-                        <div class="movie-regisseur">
-                            <i class="fas fa-2x fa-star"></i>
-                            <a class="movie-description-content">Sam Mendes</a>
-                        </div>
-                    </div>
-                    <div class="movie-description-right">
-                        <iframe src="https://www.youtube.com/embed/xZaZEQPSZd0" width="100%" height="300" style="border:none;"></iframe>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                </div>
-            </div>
-        
-        </div>
-
-        <!-- The Modal -->
-    <div id="bookingModal" class="modal">
-
-        <!-- Modal content -->
+    <!-- Main Modal -->
+    <div id="main-modal" class="modal">
         <div class="modal-content">
             <div class="modal-header">
-                <span class="close-booking">&times;</span>
-                <h2 class="modal-booking-heading">Modal Header</h2>
+                <span class="close">&times;</span>
+                <h2 class="modal-heading">Modal Header</h2>
             </div>
-            <div class="modal-body">
-                <p></p>
-                <p><strong>Verfügbare Plätze:</strong></p>
-                <table id="movieSeatChooser">
-                    <tr>
-                        <td>
-                            <div style="width:30px;height:30px;background-color: lightgreen;"></div>
-                        </td>
-                    </tr>
-                </table>
-            </div>
+            
+            <!-- Overview-Window -->
+            <div id="modal-window-overview"></div>
+
+            <!-- Sitzplatzreservierungs-Window -->
+            <div id="modal-window-seats" data-moviename="James Bond"></div>
+
+            <!-- Payment-Window -->
+            <div id="modal-window-payment"></div>
+
             <div class="modal-footer">
-                <p>
-                    <button class="button-confirmation">Auswahl bestätigen</button>
-                </p>
+                <button id="btn-back">&lt; Zurück</button>
+                <button id="btn-continue">Weiter &gt;</button>
             </div>
+
         </div>
+
+    </div>
+    <div id="posterTable">
     </div>
 
-    <!-- <div id="bookingModal" class="modal">
+</body>
+<script src="//cdn.jsdelivr.net/npm/less"></script>
+<!-- Load React | Note: when deploying, replace "development.js" with "production.min.js" -->
+<script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+<script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+<script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+<!-- Load React components -->
+<script src="modal_window_overview.js" type="text/babel"></script>
+<script src="modal_window_seats.js" type="text/babel"></script>
+<script src="modal_window_payment.js" type="text/babel"></script>
+<script src="https://www.paypal.com/sdk/js?client-id=sb&currency=EUR"
+    data-sdk-integration-source="button-factory"></script>
+<script src="main.js"></script>
 
-        <div class="modal-content">
-        <div class="modal-header">
-            <span class="close">&times;</span>
-            <h2 class="modal-header-headline">Modal Header</h2>
-        </div>
-        <div class="modal-body">
-            <p>Some text in the Modal Body</p>
-            <p id="movieTitle">Some other text...</p>
-        </div>
-        <div class="modal-footer-booking">
-            <h3>Modal Footer</h3>
-        </div>
-        </div>
-    
-    </div> -->
-
-    </body>
-    <script src="main.js"></script>
 </html>
