@@ -16,6 +16,10 @@ ctx.fillText("Kino XY", 0, 90);
 
 // Paypal Element
 function showPaypal() {
+    // calculate final sum for payment
+    let priceEur = 0;
+    selectedSeats.forEach(seat => priceEur += seat.price);
+    // console.log(priceEur);
     paypal.Buttons({
         style: {
             shape: 'rect',
@@ -24,31 +28,81 @@ function showPaypal() {
             label: 'pay',
 
         },
+        // TODO: geht nicht richtig (Error in Konsole)
         createOrder: function (data, actions) {
             return actions.order.create({
                 purchase_units: [{
                     amount: {
-                        value: '1'
-                    }
+                        currency_code: 'EUR',
+                        value: priceEur
+                    },
+                    items: selectedSeats,
                 }]
             });
         },
         onApprove: function (data, actions) {
             return actions.order.capture().then(function (details) {
                 alert('Transaction completed by ' + details.payer.name.given_name + '!');
+                modalWindowState = "overview";
             });
         }
     }).render('#paypal-button-container');
+
 }
 
 // Continue Button
+var modalWindowState = "seats";
 const btnContinue = document.getElementById("btn-continue");
 btnContinue.addEventListener("click", function () {
-    // go to payment screen
-    document.getElementById("seats-popup").style.display = "none";
-    document.getElementById("payment-popup").style.display = "block";
-    showPaypal();
+    if (modalWindowState === "seats") {
+        // get selected seats for summary
+        document.getElementById("seats-prices-summary").innerHTML = document.getElementById("seats-prices").innerHTML;
+        // go to payment screen
+        document.getElementById("seats-popup").style.display = "none";
+        document.getElementById("payment-popup").style.display = "block";
+        showPaypal();
+        btnContinue.style.display = "none";
+        modalWindowState = "booking";
+    } else if (modalWindowState === "booking") {
+        // only close modal if booking was completed successfully
+    }
 });
+
+// Back Button
+const btnBack = document.getElementById("btn-back");
+btnBack.addEventListener("click", function () {
+    console.log(modalWindowState);
+    if (modalWindowState === "overview") {
+        // close the modal
+        closeModal();
+    } else if (modalWindowState === "seats") {
+        // go back to overview window
+        document.getElementById("seats-popup").style.display = "none";
+        // document.getElementById("overview").style.display = "block";
+        modalWindowState = "overview";
+        closeModal();
+    } else if (modalWindowState === "booking") {
+        // go back to seats window
+        document.getElementById("btn-continue").style.display = "block";
+        document.getElementById("payment-popup").style.display = "none";
+        document.getElementById("paypal-button-container").innerHTML = "";
+        document.getElementById("seats-popup").style.display = "block";
+        modalWindowState = "seats";
+    }
+});
+
+function closeModal() {
+    if (modalWindowState === "seats") {
+        document.getElementById("seats-popup").style.display = "none";
+    } else if (modalWindowState === "booking") {
+        document.getElementById("btn-continue").style.display = "block";
+        document.getElementById("payment-popup").style.display = "none";
+        document.getElementById("paypal-button-container").innerHTML = "";
+    }
+    modal.style.display = "none";
+    modalWindowState = "none";
+    // TODO: remove innerHTML, add it again when re-displaying the modal windows
+}
 
 
 const table = document.getElementById("posterTable");
@@ -85,18 +139,20 @@ var span = document.getElementsByClassName("close")[0];
 
 // When the user clicks on <span> (x), close the modal
 span.onclick = function () {
-    modal.style.display = "none";
+    closeModal();
 }
 
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function (event) {
     if (event.target == modal) {
-        modal.style.display = "none";
+        closeModal();
     }
 }
 
 function displayMovieDetails(movie) {
     modal.style.display = "block";
+    // TODO: display first screen, not directly the booking screen
+    displayBookingScreen(movie);
 }
 
 
@@ -108,7 +164,7 @@ function displayBookingScreen(movie) {
             // add seat
             const randomBookStatus = [0, 2][Math.floor(Math.random() * 2)];
             const randomCategory = [["normal", 9], ["handicap", 3]][Math.floor(Math.random() * 2)];
-            row.appendChild(getSeatElement(movie, `R${i}S${j}`, randomBookStatus, randomCategory[0], randomCategory[1]));
+            row.appendChild(getSeatElement(movie, `R${i}C${j}`, randomBookStatus, randomCategory[0], randomCategory[1]));
         }
         seatTable.appendChild(row);
     }
@@ -143,7 +199,7 @@ function getSeatElement(movie, seatNo, isBooked, category, price) {
                 div.style.backgroundColor = div.getAttribute("category") == "handicap" ? "lightskyblue" : "white";
                 div.setAttribute("is-booked", "0");
                 // remove ticket from list
-                removeTicket(movie, category);
+                removeTicket(movie, seatNo, category);
                 totalNoTickets--;
             }
             calculatePriceSum();
@@ -154,6 +210,7 @@ function getSeatElement(movie, seatNo, isBooked, category, price) {
     return seat;
 }
 
+var selectedSeats = [];
 
 function addTicket(movie, seatNo, category, price) {
     const table = document.getElementById("ticketPriceTable");
@@ -175,7 +232,7 @@ function addTicket(movie, seatNo, category, price) {
         tr.setAttribute("seat-number", seatNo);
         tr.setAttribute("price-category", category);
         tr.setAttribute("ticket-quantity", 1);
-        tr.setAttribute("ticket-price", price)
+        tr.setAttribute("ticket-price", price);
         const tdTicket = document.createElement("td");
         const tdPrice = document.createElement("td");
         tdTicket.className = tdPrice.className = "price-table-data";
@@ -185,6 +242,12 @@ function addTicket(movie, seatNo, category, price) {
         tr.appendChild(tdPrice);
         table.appendChild(tr);
     }
+    // keep track of selected seats
+    selectedSeats.push({
+        seatNo: seatNo,
+        category: category,
+        price: Number(price)
+    });
 }
 
 function calculatePriceSum() {
@@ -194,13 +257,12 @@ function calculatePriceSum() {
         price = [...table.children]
             .map(el => Number(el.getAttribute("ticket-quantity")) * Number(el.getAttribute("ticket-price")))
             .reduce((oldVal, nextVal) => oldVal + nextVal);
-        console.log(price);
     }
     document.getElementById("price-sum").innerHTML = `${(Math.round(price * 100) / 100).toFixed(2)} €`;
 }
 
 // TODO: decoupling of data/UI!!!
-function removeTicket(movie, category) {
+function removeTicket(movie, seatNo, category) {
     // remove where = category
     const table = document.getElementById("ticketPriceTable");
     if (table.firstElementChild != null) {
@@ -218,15 +280,13 @@ function removeTicket(movie, category) {
             existingTr.children[0].innerHTML = `${newQuantity} x ${movie} (${category})`;
             existingTr.children[1].innerHTML = `${newPrice} €`;
         }
+        selectedSeats = selectedSeats.filter(el => el.seatNo !== seatNo);
     }
 }
 
 
 
-
-
-
-// displayBookingScreen("James Bond 007 - No Time to Die");
+displayMovieDetails("James Bond 007 - No Time to Die");
 
 
 // var xmlHttp = new XMLHttpRequest();

@@ -20,7 +20,7 @@
             <span class="close">&times;</span>
 
             <!-- Sitzplatzreservierungs-Popup -->
-            <!-- <div id="seats-popup">
+            <div id="seats-popup">
                 <h4>Sitzplätze auswählen</h4>
                 <div class="seats-wrapper">
 
@@ -29,7 +29,7 @@
                         <table id="seatPlanTable"></table>
                     </div>
 
-                    <div class="seats-prices">
+                    <div class="seats-prices" id="seats-prices">
                         <p><strong>Aktuelle Auswahl: <span id="totalNoTickets">0</span> Tickets</strong></p>
                         <table class="price-table" id="ticketPriceTable">
                         </table>
@@ -42,14 +42,14 @@
                     </div>
 
                 </div>
-            </div> -->
+            </div>
 
             <!-- Payment-Popup -->
-            <!-- <div id="payment-popup">
-                <h3>Zusammenfassung:</h3>
-                <div class="seats-prices">
+            <div id="payment-popup">
+                <h4>Zusammenfassung:</h4>
+                <div class="seats-prices" id="seats-prices-summary">
                     <p><strong><span id="totalNoTicketsSummary">0</span> Tickets</strong></p>
-                    <table class="price-table" id="ticketPriceTable">
+                    <table class="price-table" id="ticketPriceTable-summary">
                     </table>
                     <hr id="sum-line">
                     <table class="price-table">
@@ -58,11 +58,15 @@
                             <td id="price-sum-summary" class="price-table-data">0.00 €</td>
                     </table>
                 </div>
+                <h4>Bezahlmethode auswählen</h4>
                 <div id="paypal-button-container"></div>
-            </div> -->
+            </div>
+
+            <!-- <div id="price_table_container"></div> -->
 
             <div class="ticket-bottom-bar">
-                <button id="btn-continue">Weiter</button>
+                <button id="btn-back">&lt; Zurück</button>
+                <button id="btn-continue">Weiter &gt;</button>
             </div>
 
         </div>
@@ -85,6 +89,11 @@
 
 </body>
 <script src="//cdn.jsdelivr.net/npm/less"></script>
+<!-- Load React | Note: when deploying, replace "development.js" with "production.min.js" -->
+<script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+<script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+<!-- Load React components -->
+<script src="price_table.js"></script>
 <script src="https://www.paypal.com/sdk/js?client-id=sb&currency=EUR"
     data-sdk-integration-source="button-factory"></script>
 <script src="main.js"></script>
