@@ -20,33 +20,30 @@
         <div class="modal-content">
             <span class="close">&times;</span>
             <!-- Sitzplatzreservierungs-Popup -->
-            <h3>Sitzplätze auswählen</h3>
+            <h4>Sitzplätze auswählen</h4>
 
-            <div class="seats-modal">
-                <div style="display: block; float: left;">
-                    <h3>Kino 11</h3>
-                    <table id="movieSeatChooser"></table>
+            <div class="seats-wrapper">
+
+                <div class="seats-selector">
+                    <h4>Kino 11</h4>
+                    <table id="seatPlanTable"></table>
                 </div>
-                <div id="movieSeatInfo">
+
+                <div class="seats-prices">
                     <p><strong>Aktuelle Auswahl: <span id="totalNoTickets">0</span> Tickets</strong></p>
-                    <div>
-                        <div class="price-table-wrapper">
-                            <table id="ticketPriceTable" class="price-table">
-                                <!-- <tr class="price-table-row">
-                                        <td class="price-table-data">2x James Bond 007</td>
-                                        <td class="price-table-data">28,00 €</td>
-                                    </tr> -->
-                            </table>
-                        </div>
-                        <table class="price-table">
-                            <tr class="price-table-row">
-                                <td class="price-table-data">Summe</td>
-                                <td id="price-sum" class="price-table-data">0.00 €</td>
-                        </table>
-                    </div>
+                    <table class="price-table" id="ticketPriceTable">
+                    </table>
+                    <hr id="sum-line">
+                    <table class="price-tablea">
+                        <tr class="price-table-row">
+                            <td class="price-table-data">Summe</td>
+                            <td id="price-sum" class="price-table-data">0.00 €</td>
+                    </table>
                 </div>
+
             </div>
-            <div>
+
+            <div class="ticket-bottom-bar">
                 <button id="btn-continue">Weiter</button>
             </div>
 

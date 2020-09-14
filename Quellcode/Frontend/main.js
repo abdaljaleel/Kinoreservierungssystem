@@ -63,10 +63,10 @@ function displayMovieDetails(movie) {
 
 
 function displayBookingScreen(movie) {
-    var seatTable = document.getElementById("movieSeatChooser");
-    for (var i = 0; i < 6; i++) {
+    var seatTable = document.getElementById("seatPlanTable");
+    for (var i = 0; i < 8; i++) {
         var row = document.createElement("tr");
-        for (var j = 0; j < 15; j++) {
+        for (var j = 0; j <12; j++) {
             // add seat
             const randomBookStatus = [0, 2][Math.floor(Math.random() * 2)];
             const randomCategory = [["normal", 9], ["handicap", 3]][Math.floor(Math.random() * 2)];

@@ -145,7 +145,8 @@ h1 {
   margin: auto;
   padding: 20px;
   width: 70%;
-  overflow-x:auto;
+  overflow-y:auto;
+  overflow-x: hidden;
 
   border-radius: 10px;
   justify-content: center;
@@ -178,7 +179,7 @@ h1 {
 }
 
 
-.seats-modal {
+.seats-wrapper {
   width: 80%;
 //   height: auto;
   align-content: center;
@@ -186,28 +187,37 @@ h1 {
   padding: 5%;
 }
 
-#movieSeatInfo {
+
+// Seats Prices
+
+.seats-prices {
     display: block;
     float: left;
-  padding: 10px;
+    width: 400px;
 //   flex-grow: 0.5;
-  max-width: 200px;
 }
 
 .price-table-wrapper {
-  width: auto;
+//   width: auto;
 }
 .price-table {
   width: 350px;
+  overflow-x: auto;
+  // min-height: 200px;
 }
 .price-table-data {
   padding: 10px;
-  margin-top: 10px;
-  margin-bottom: 10px;
   min-width: 6em;
 }
 .price-table-data:last-child {
   text-align: end;
+}
+#sum-line {
+    margin: 5px;
+    align-self: center;
+    background-color: gray;
+    height: 1px;
+    width: 340px;
 }
 /* .price-table-sum {
   padding: 10px;
@@ -215,24 +225,32 @@ h1 {
 } */
 
 
+// Seats Selector
 
-#movieSeatChooser {
+.seats-selector {
+    display: block;
+    float: left;
+    width: 500px;
+}
+
+#seatPlanTable {
 //   flex-grow: 0.5;
-  width: auto;
+  width: 100%;
   padding: 10px;
   display: block;
   float: left;
+  overflow-x: auto;
 }
 
 .seat {
   margin: 5px;
-  width: 32px;
-  height: 32px;
+  width: 24px;
+  height: 24px;
   background-color: white;
-//   border: 1px solid gray;
+  border: 1px solid gray;
 //   background-color:#E0E5EC;
-  border-radius: 10px;
-  box-shadow: 9px 9px 16px rgb(163,177,198,0.6), -9px -9px 16px    rgba(255,255,255, 0.5);
+//   border-radius: 10px;
+//   box-shadow: 9px 9px 16px rgb(163,177,198,0.6), -9px -9px 16px    rgba(255,255,255, 0.5);
   cursor: pointer;
   vertical-align: bottom;
 }
@@ -241,13 +259,14 @@ h1 {
     .seat();
     // white-space: nowrap;
     background-color: lightskyblue;
-    padding: 14px;
+    // padding: 0px;
     // text-align: center;
     // vertical-align: bottom;
 }
-// .seat-handicap:only-child {
-//     margin: 5px;
-// }
+.seat-handicap:only-child {
+    padding: 5px;
+    color: white;
+}
 
 .seat-occupied {
   .seat();
@@ -262,12 +281,15 @@ h1 {
 }
 
 
-#btn-continue {
+.ticket-bottom-bar {
     width: 100%;
+    min-width: 100px;
+}
+
+#btn-continue {
     float: right;
     bottom: 0px;
-    border: 0px;
-    border-radius: 10px;
-    background-color:#E0E5EC;
-    box-shadow: 9px 9px 16px rgb(163,177,198,0.6), -9px -9px 16px    rgba(255,255,255, 0.5);
+    // border-radius: 10px;
+    // background-color:#E0E5EC;
+    // box-shadow: 9px 9px 16px rgb(163,177,198,0.6), -9px -9px 16px    rgba(255,255,255, 0.5);
 }
