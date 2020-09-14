@@ -1,7 +1,7 @@
 /* Styles */
 body{
     background-color: #E0E5EC;
-    background-image: url(static/8.jpg);
+    background-image: url(static/6.jpg);
     margin: 10px auto;
     width: 100%;
     clear: :both;
@@ -316,9 +316,10 @@ i {
 }
 
 /*---------------MEIN HEADER------------*/
+
 .mainheader nav {
   background-color: #c0392b;
-  width: 100%;
+background-width: 1250px;
   height: 40px;
   border-radius: 5px;
   -webkit-border-radius: 5px;
@@ -353,4 +354,8 @@ a{text-decoration: none;}
   color: blue;
   background-color: #f55233; 
   text-shadow: none;
+}
+
+.footer{
+  color: white;
 }
