@@ -1,13 +1,20 @@
 // Code
+let data;
 
-const Http = new XMLHttpRequest();
-const url = 'http://5.252.225.55:8080/kinoticketreservierungssystem-0.0.1-SNAPSHOT/movies';
-Http.open("GET", url);
-Http.send();
+function getData(){
 
-Http.onreadystatechange=(e)=>{
-    console.log(Http.responseText);
+    const Http = new XMLHttpRequest();
+    const url = 'http://5.252.225.55:8080/kinoticketreservierungssystem-0.0.1-SNAPSHOT/movies';
+    Http.open("GET", url);
+
+    Http.onload = function() {
+        data = JSON.parse(Http.response);
+        console.log(data);
+    };
+    Http.send();
 }
+
+getData();
 
 const table = document.getElementById("posterTable");
 
@@ -103,7 +110,7 @@ function getSeatElement() {
 
 function showModal() {
     var modalHeading = document.getElementsByClassName("modal-heading")[0];
-    modalHeading.innerHTML = "Übersicht";
+    modalHeading.innerHTML = "James Bond - Skyfall";
     modal.style.display = "block";
     var modalTitle = document.getElementById("movieTitle");
     modalTitle.innerHTML = "James Bond";
