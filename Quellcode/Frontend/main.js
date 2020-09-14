@@ -13,6 +13,44 @@ gradient.addColorStop("1.0", "red");
 ctx.fillStyle = gradient;
 ctx.fillText("Kino XY", 0, 90);
 
+
+// Paypal Element
+function showPaypal() {
+    paypal.Buttons({
+        style: {
+            shape: 'rect',
+            color: 'gold',
+            layout: 'vertical',
+            label: 'pay',
+
+        },
+        createOrder: function (data, actions) {
+            return actions.order.create({
+                purchase_units: [{
+                    amount: {
+                        value: '1'
+                    }
+                }]
+            });
+        },
+        onApprove: function (data, actions) {
+            return actions.order.capture().then(function (details) {
+                alert('Transaction completed by ' + details.payer.name.given_name + '!');
+            });
+        }
+    }).render('#paypal-button-container');
+}
+
+// Continue Button
+const btnContinue = document.getElementById("btn-continue");
+btnContinue.addEventListener("click", function () {
+    // go to payment screen
+    document.getElementById("seats-popup").style.display = "none";
+    document.getElementById("payment-popup").style.display = "block";
+    showPaypal();
+});
+
+
 const table = document.getElementById("posterTable");
 
 var maxRow = 2;
@@ -66,7 +104,7 @@ function displayBookingScreen(movie) {
     var seatTable = document.getElementById("seatPlanTable");
     for (var i = 0; i < 8; i++) {
         var row = document.createElement("tr");
-        for (var j = 0; j <12; j++) {
+        for (var j = 0; j < 12; j++) {
             // add seat
             const randomBookStatus = [0, 2][Math.floor(Math.random() * 2)];
             const randomCategory = [["normal", 9], ["handicap", 3]][Math.floor(Math.random() * 2)];
@@ -161,14 +199,12 @@ function calculatePriceSum() {
     document.getElementById("price-sum").innerHTML = `${(Math.round(price * 100) / 100).toFixed(2)} €`;
 }
 
-
+// TODO: decoupling of data/UI!!!
 function removeTicket(movie, category) {
     // remove where = category
     const table = document.getElementById("ticketPriceTable");
     if (table.firstElementChild != null) {
         // remove ticket from category
-        // TODO: find out which category
-        // const existingTr = table.firstElementChild;
         const existingTr = (table.children.length != 0
             && [...table.children].filter(el => el.getAttribute("price-category") == category)[0]);
         const newQuantity = Number(existingTr.getAttribute("ticket-quantity")) - 1;
@@ -190,7 +226,7 @@ function removeTicket(movie, category) {
 
 
 
-displayBookingScreen("James Bond 007 - No Time to Die");
+// displayBookingScreen("James Bond 007 - No Time to Die");
 
 
 // var xmlHttp = new XMLHttpRequest();

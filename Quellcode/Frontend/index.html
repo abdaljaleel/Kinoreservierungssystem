@@ -6,7 +6,6 @@
 <head>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet/less" type="text/css" href="styles.less" />
-    <!-- <link rel="stylesheet" href="style.css"> -->
     <title>Kinosystem</title>
 </head>
 
@@ -19,65 +18,57 @@
         <!-- Modal content -->
         <div class="modal-content">
             <span class="close">&times;</span>
+
             <!-- Sitzplatzreservierungs-Popup -->
-            <h4>Sitzplätze auswählen</h4>
+            <!-- <div id="seats-popup">
+                <h4>Sitzplätze auswählen</h4>
+                <div class="seats-wrapper">
 
-            <div class="seats-wrapper">
+                    <div class="seats-selector">
+                        <h4>Kino 11</h4>
+                        <table id="seatPlanTable"></table>
+                    </div>
 
-                <div class="seats-selector">
-                    <h4>Kino 11</h4>
-                    <table id="seatPlanTable"></table>
+                    <div class="seats-prices">
+                        <p><strong>Aktuelle Auswahl: <span id="totalNoTickets">0</span> Tickets</strong></p>
+                        <table class="price-table" id="ticketPriceTable">
+                        </table>
+                        <hr id="sum-line">
+                        <table class="price-table">
+                            <tr class="price-table-row">
+                                <td class="price-table-data">Summe</td>
+                                <td id="price-sum" class="price-table-data">0.00 €</td>
+                        </table>
+                    </div>
+
                 </div>
+            </div> -->
 
+            <!-- Payment-Popup -->
+            <!-- <div id="payment-popup">
+                <h3>Zusammenfassung:</h3>
                 <div class="seats-prices">
-                    <p><strong>Aktuelle Auswahl: <span id="totalNoTickets">0</span> Tickets</strong></p>
+                    <p><strong><span id="totalNoTicketsSummary">0</span> Tickets</strong></p>
                     <table class="price-table" id="ticketPriceTable">
                     </table>
                     <hr id="sum-line">
-                    <table class="price-tablea">
+                    <table class="price-table">
                         <tr class="price-table-row">
                             <td class="price-table-data">Summe</td>
-                            <td id="price-sum" class="price-table-data">0.00 €</td>
+                            <td id="price-sum-summary" class="price-table-data">0.00 €</td>
                     </table>
                 </div>
-
-            </div>
+                <div id="paypal-button-container"></div>
+            </div> -->
 
             <div class="ticket-bottom-bar">
                 <button id="btn-continue">Weiter</button>
             </div>
 
-            <!-- <table>
-                    <td>
-                        <p id="modalMovieDetails">James Bond - No Time to Die</p>
-                        <p><strong>Zusammenfassung:</strong></p>
-                        <p>Bond travels to Turkey and meets Ali Kerim Bey, the MI6 officer in Turkey. Between them, they
-                            obtain the Lektor, and the three escape with the device on the Orient Express. However, they
-                            are
-                            followed by Grant, who kills Kerim Bey and a Soviet security officer. Grant pretends to be
-                            another British agent and meets Bond. Over dinner Grant drugs Romanova, then overcomes Bond.
-                            Bond tricks Grant into opening Bond's attaché case in the manner that detonates its tear gas
-                            booby trap, allowing Bond to attack and kill him. Bond and Romanova escape with the Lektor
-                            to
-                            Venice. Rosa Klebb, disguised as a hotel maid, attempts to steal the Lektor and kill Bond,
-                            but
-                            ends up being shot by Romanova.</p>
-                        <p>
-                            <button onclick="displayBookingScreen()">Ticket Buchen</button>
-                        </p>
-                    </td>
-                    <td>
-                        <iframe width="420" height="315" src="https://www.youtube.com/embed/jE-LhbK4Ug4">
-                        </iframe>
-                    </td>
-                </table> -->
-
-
         </div>
 
     </div>
     <div id="posterTable">
-
         <!-- <div class="flip-card">
                 <div class="flip-card-inner">
                     <div class="flip-card-front">
@@ -90,39 +81,12 @@
                     </div>
                 </div>
             </div> -->
-
     </div>
-    <h1>PayPal</h1>
-    Hallo
-    <div id="paypal-button-container"></div>
-    <script src="https://www.paypal.com/sdk/js?client-id=sb&currency=EUR" data-sdk-integration-source="button-factory"></script>
-    <script>
-      paypal.Buttons({
-          style: {
-              shape: 'rect',
-              color: 'gold',
-              layout: 'vertical',
-              label: 'pay',
-              
-          },
-          createOrder: function(data, actions) {
-              return actions.order.create({
-                  purchase_units: [{
-                      amount: {
-                          value: '1'
-                      }
-                  }]
-              });
-          },
-          onApprove: function(data, actions) {
-              return actions.order.capture().then(function(details) {
-                  alert('Transaction completed by ' + details.payer.name.given_name + '!');
-              });
-          }
-      }).render('#paypal-button-container');
-    </script>
+
 </body>
 <script src="//cdn.jsdelivr.net/npm/less"></script>
+<script src="https://www.paypal.com/sdk/js?client-id=sb&currency=EUR"
+    data-sdk-integration-source="button-factory"></script>
 <script src="main.js"></script>
 
 </html>
