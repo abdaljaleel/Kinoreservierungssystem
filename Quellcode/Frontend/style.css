@@ -63,7 +63,7 @@ h1 {
     margin-right: auto;
 }
 
-.button-booking {
+#btn-back, #btn-continue {
   margin-left: auto;
   margin-right: auto;
   display: block;
@@ -80,7 +80,7 @@ h1 {
   box-shadow: 11px 14px 26px 4px rgba(0,0,0,0.24);
 }
 
-.button-booking:hover {
+#btn-back:hover, #btn-continue:hover {
   transition: ease-in-out 0.65s;
   color: #7f726a;
   background-color: whitesmoke;
