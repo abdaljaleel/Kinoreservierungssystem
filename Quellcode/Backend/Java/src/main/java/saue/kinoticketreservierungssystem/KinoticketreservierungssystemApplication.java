@@ -7,7 +7,7 @@ import org.springframework.boot.autoconfigure.data.rest.RepositoryRestMvcAutoCon
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 
 
-@SpringBootApplication(exclude = RepositoryRestMvcAutoConfiguration.class)
+@SpringBootApplication//(exclude = RepositoryRestMvcAutoConfiguration.class)
 @EnableEncryptableProperties
 public class KinoticketreservierungssystemApplication  {
 
