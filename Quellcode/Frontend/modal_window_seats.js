@@ -6,13 +6,13 @@ class Seats extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            selectedSeats: []
+            seats: props.seats
         };
         this.displayBookingScreen(props.movieName);
     }
 
+    // Return JSX Elements in renderSeatPlan() function
     displayBookingScreen(movie) {
-        console.log("display");
         var seatTable = document.getElementById("seatPlanTable");
         for (var i = 0; i < 8; i++) {
             var row = document.createElement("tr");
@@ -20,7 +20,6 @@ class Seats extends React.Component {
                 // add seat
                 const randomBookStatus = [0, 2][Math.floor(Math.random() * 2)];
                 const randomCategory = [["normal", 9], ["handicap", 3]][Math.floor(Math.random() * 2)];
-                console.log(movie, i, j, randomBookStatus, randomCategory);
                 row.appendChild(this.createSeatElement(movie, `R${i}C${j}`, randomBookStatus, randomCategory[0], randomCategory[1]));
             }
             seatTable.appendChild(row);
@@ -141,6 +140,10 @@ class Seats extends React.Component {
 
     }
 
+    renderPriceTable() {
+
+    }
+
 
     render() {
         return (
@@ -158,6 +161,7 @@ class Seats extends React.Component {
                     <div className="seats-prices" id="seats-prices">
                         <p><strong>Aktuelle Auswahl: <span id="totalNoTickets">0</span> Tickets</strong></p>
                         <table className="price-table" id="ticketPriceTable">
+                            <tbody>{this.renderPriceTable()}</tbody>
                         </table>
                         <hr id="sum-line" />
                         <table className="price-table">

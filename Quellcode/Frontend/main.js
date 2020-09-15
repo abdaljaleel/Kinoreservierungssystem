@@ -67,7 +67,7 @@ function showPaypal() {
 var modalWindowState = "overview";
 const btnContinue = document.getElementById("btn-continue");
 btnContinue.addEventListener("click", function () {
-    if(modalWindowState === "overview") {
+    if (modalWindowState === "overview") {
         document.getElementById("modal-window-overview").style.display = "none";
         document.getElementById("modal-window-seats").style.display = "block";
         modalWindowState = "seats";
@@ -150,141 +150,19 @@ for (let row = 0; row < maxRow; row++) {
 function displayMovieDetails(movie) {
     // show main modal
     modal.style.display = "block";
-    document.getElementById("modal-window-overview").style.display = "block";
-}
-
-
-function displayBookingScreen(movie) {
-    var seatTable = document.getElementById("seatPlanTable");
-    for (var i = 0; i < 8; i++) {
-        var row = document.createElement("tr");
-        for (var j = 0; j < 12; j++) {
-            // add seat
-            const randomBookStatus = [0, 2][Math.floor(Math.random() * 2)];
-            const randomCategory = [["normal", 9], ["handicap", 3]][Math.floor(Math.random() * 2)];
-            row.appendChild(getSeatElement(movie, `R${i}C${j}`, randomBookStatus, randomCategory[0], randomCategory[1]));
-        }
-        seatTable.appendChild(row);
-    }
-}
-
-function getSeatElement(movie, seatNo, isBooked, category, price) {
-    const seat = document.createElement("td");
-    const div = document.createElement("div");
-    div.className = (isBooked == 2 && "seat-occupied")
-        || (category == "normal" && "seat")
-        || (category == "handicap" && "seat-handicap");
-    div.setAttribute("seat-number", seatNo);
-    div.setAttribute("is-booked", isBooked);
-    div.setAttribute("category", category);
-    // 2 : nicht buchbar, da schon von anderer Person gebucht, also keinen listener hinzufügen
-    if (isBooked != 2) {
-        if (category == "handicap") {
-            const wheelchairIcon = document.createElement("span");
-            wheelchairIcon.className = "fa fa-wheelchair fa-lg";
-            // div.appendChild(wheelchairIcon);
-            div.className = "fa fa-wheelchair seat-handicap";
-        }
-        div.addEventListener("click", function () {
-            let totalNoTickets = Number(document.getElementById("totalNoTickets").innerHTML);
-            if (div.getAttribute("is-booked") === "0") {
-                div.style.backgroundColor = "lightgreen";
-                div.setAttribute("is-booked", "1");
-                // book ticket
-                addTicket(movie, seatNo, category, price);
-                totalNoTickets++;
-            } else if (div.getAttribute("is-booked") === "1") {
-                div.style.backgroundColor = div.getAttribute("category") == "handicap" ? "lightskyblue" : "white";
-                div.setAttribute("is-booked", "0");
-                // remove ticket from list
-                removeTicket(movie, seatNo, category);
-                totalNoTickets--;
-            }
-            calculatePriceSum();
-            document.getElementById("totalNoTickets").innerHTML = totalNoTickets;
-        });
-    }
-    seat.appendChild(div);
-    return seat;
-}
-
-var selectedSeats = [];
-
-function addTicket(movie, seatNo, category, price) {
-    const table = document.getElementById("ticketPriceTable");
-    // check if category is already present
-    const existingTr = (table.children.length != 0
-        && [...table.children].filter(el => el.getAttribute("price-category") == category)[0]);
-    if (existingTr) {
-        // add one ticket to existing category
-        const newQuantity = Number(existingTr.getAttribute("ticket-quantity")) + 1;
-        existingTr.setAttribute("ticket-quantity", newQuantity);
-        let newPrice = newQuantity * Number(existingTr.getAttribute("ticket-price"));
-        newPrice = (Math.round(newPrice * 100) / 100).toFixed(2);
-        existingTr.children[0].innerHTML = `${newQuantity} x ${movie} (${category})`;
-        existingTr.children[1].innerHTML = `${(Math.round(newPrice * 100) / 100).toFixed(2)} €`;
-    } else {
-        // add new ticket category
-        const tr = document.createElement("tr");
-        tr.className = "price-table-row";
-        tr.setAttribute("seat-number", seatNo);
-        tr.setAttribute("price-category", category);
-        tr.setAttribute("ticket-quantity", 1);
-        tr.setAttribute("ticket-price", price);
-        const tdTicket = document.createElement("td");
-        const tdPrice = document.createElement("td");
-        tdTicket.className = tdPrice.className = "price-table-data";
-        tdTicket.innerHTML = `${1} x ${movie} (${category})`;
-        tdPrice.innerHTML = `${price} €`;
-        tr.appendChild(tdTicket);
-        tr.appendChild(tdPrice);
-        table.appendChild(tr);
-    }
-    // keep track of selected seats
-    selectedSeats.push({
-        seatNo: seatNo,
-        category: category,
-        price: Number(price)
-    });
-}
-
-function calculatePriceSum() {
-    const table = document.getElementById("ticketPriceTable");
-    let price = 0;
-    if (table.children.length != 0) {
-        price = [...table.children]
-            .map(el => Number(el.getAttribute("ticket-quantity")) * Number(el.getAttribute("ticket-price")))
-            .reduce((oldVal, nextVal) => oldVal + nextVal);
-    }
-    document.getElementById("price-sum").innerHTML = `${(Math.round(price * 100) / 100).toFixed(2)} €`;
-}
-
-// TODO: decoupling of data/UI!!!
-function removeTicket(movie, seatNo, category) {
-    // remove where = category
-    const table = document.getElementById("ticketPriceTable");
-    if (table.firstElementChild != null) {
-        // remove ticket from category
-        const existingTr = (table.children.length != 0
-            && [...table.children].filter(el => el.getAttribute("price-category") == category)[0]);
-        const newQuantity = Number(existingTr.getAttribute("ticket-quantity")) - 1;
-        if (newQuantity == 0) {
-            // remove element if last ticket is removed
-            table.removeChild(existingTr);
-        } else {
-            existingTr.setAttribute("ticket-quantity", newQuantity);
-            let newPrice = newQuantity * Number(existingTr.getAttribute("ticket-price"));
-            newPrice = (Math.round(newPrice * 100) / 100).toFixed(2);
-            existingTr.children[0].innerHTML = `${newQuantity} x ${movie} (${category})`;
-            existingTr.children[1].innerHTML = `${newPrice} €`;
-        }
-        selectedSeats = selectedSeats.filter(el => el.seatNo !== seatNo);
-    }
+    const overviewWindow = document.getElementById("modal-window-overview");
+    overviewWindow.style.display = "block";
+    console.log(overviewWindow);
+    overviewWindow.setAttribute("data-moviename", "Mein Movie");
+    console.log(overviewWindow);
+    // document.getElementById("modal-content-window").innerHTML = "";
+    // const overviewWindow = document.createElement("div");
+    // overviewWindow.id = "modal-window-overview";
+    // document.getElementById("modal-content-window").appendChild(overviewWindow);
 }
 
 
 
-// displayMovieDetails("James Bond 007 - No Time to Die");
 
 
 

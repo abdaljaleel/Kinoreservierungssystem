@@ -6,11 +6,12 @@ class MovieOverview extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            // liked: false
+            movieName: props.movieName
         };
     }
 
     render() {
+        document.getElementById("modal-heading").innerHTML = movieName;
         return (
             <div className="modal-body" id="modal-body-ID">
                 <div className="movie-description-left">
@@ -78,4 +79,5 @@ class MovieOverview extends React.Component {
 }
 
 const domContainer = document.querySelector("#modal-window-overview");
-ReactDOM.render(e(MovieOverview), domContainer);
+const movieName = domContainer.dataset.moviename;
+ReactDOM.render(e(MovieOverview, {movieName: movieName}), domContainer);
