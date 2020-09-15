@@ -63,7 +63,10 @@ export class PosterTable extends Component {
     render() {
         return (
             <div>
-                {this.renderMoviePosters()}
+                <div>
+                    {this.renderMoviePosters()}
+                </div>
+                <div style={{clear:"both"}}></div>
             </div>
         )
     }
