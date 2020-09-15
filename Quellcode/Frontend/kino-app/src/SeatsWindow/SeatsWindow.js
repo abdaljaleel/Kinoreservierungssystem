@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import "./styles.less";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faWheelchair as faWheelchair } from '@fortawesome/free-solid-svg-icons'
+import { faWheelchair } from '@fortawesome/free-solid-svg-icons'
 
 export class SeatsWindow extends Component {
 
@@ -49,28 +49,28 @@ export class SeatsWindow extends Component {
         };
     }
 
-    componentDidMount() {
-        // get seats data from backend
-        fetch("https://api.example.com/items")
-            .then(res => res.json())
-            .then(
-                (result) => {
-                    this.setState({
-                        isLoaded: true,
-                        items: result.items
-                    });
-                },
-                // Note: it's important to handle errors here
-                // instead of a catch() block so that we don't swallow
-                // exceptions from actual bugs in components.
-                (error) => {
-                    this.setState({
-                        isLoaded: true,
-                        error
-                    });
-                }
-            )
-    }
+    // componentDidMount() {
+    //     // get seats data from backend
+    //     fetch("https://api.example.com/items")
+    //         .then(res => res.json())
+    //         .then(
+    //             (result) => {
+    //                 this.setState({
+    //                     isLoaded: true,
+    //                     items: result.items
+    //                 });
+    //             },
+    //             // Note: it's important to handle errors here
+    //             // instead of a catch() block so that we don't swallow
+    //             // exceptions from actual bugs in components.
+    //             (error) => {
+    //                 this.setState({
+    //                     isLoaded: true,
+    //                     error
+    //                 });
+    //             }
+    //         )
+    // }
 
     // Return JSX Elements in renderSeatPlan() function
     // displayBookingScreen(movie) {
@@ -197,8 +197,20 @@ export class SeatsWindow extends Component {
     //     }
     // }
 
-    onSeatClicked(id) {
-        console.log(id);
+    onSeatClicked(id, row) {
+        console.log(id, row);
+        // update bookingstatus of state
+        this.setState({
+            seats: this.state.seats.map((seatRow, index) => {
+                if (index === row) {
+                    seatRow = seatRow.map(seat => {
+                        return (seat.id === id && seat.bookStatus !== "2") ? { ...seat, bookStatus: seat.bookStatus === "0" ? "1" : "0" } : seat;
+                    })
+                }
+                return seatRow;
+            })
+        });
+        console.log(this.state.seats);
     }
 
     renderSeatPlan() {
@@ -208,10 +220,11 @@ export class SeatsWindow extends Component {
                     {seatRow.map(seat => {
                         const { id, row, col, category, bookStatus } = seat;
                         const className = (bookStatus === "2" && "seat-occupied")
+                            || (bookStatus === "1" && "seat-selected")
                             || (category === "handicap" && "seat-handicap")
                             || (category === "normal" && "seat");
                         return (
-                            <td key={id} onClick={e => this.onSeatClicked(id)}>
+                            <td key={id} onClick={e => this.onSeatClicked(id, row)}>
                                 <div className={className}>
                                     {category === "handicap" && <FontAwesomeIcon icon={faWheelchair} className="handicap-icon" />}
                                 </div>
