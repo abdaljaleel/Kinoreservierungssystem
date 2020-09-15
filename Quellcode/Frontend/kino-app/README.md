@@ -1,3 +1,27 @@
+## Setup
+
+Im Projektordner (kino-app) in der Konsole `npm install` ausführen, um Dependencies in den `node_modules` Ordner zu installieren.
+
+Mit `npm start` wird der Enwicklungsserver gestartet und ein Browser-Preview öffnet sich.
+
+Falls die Styles nicht geladen werden, im Ordner `node_modules/react-scripts/config` in der Datei `webpack.config.js` Folgendes in Zeile 538 hinzufügen, um den LESS Compiler hinzuzufügen:
+
+`{ test: /\.less$/,use: [ { loader: 'style-loader' }, { loader: 'css-loader' }, { loader: 'less-loader' } ] },` 
+
+## Zur Struktur
+
+Das Projekt verwendet React-Komponenten, in Javascript geschrieben, zusammen mit `.less` Dateien, die in `.css` für das Styling kompiliert werden.
+
+Für neue Komponenten werden jeweils gleichnamige Ordner angelegt, die jeweils die Komponente und die Styles als Dateien enthalten.
+
+
+
+---
+
+Auto-generated:
+
+---
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
