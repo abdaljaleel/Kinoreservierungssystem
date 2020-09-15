@@ -5,6 +5,7 @@ import './styles.less';
 import { PosterTable } from './PosterTable/PosterTable';
 import { MainModal } from './MainModal/MainModal';
 
+
 function App() {
   const [showModal, setShowModal] = useState(false);
 
@@ -21,7 +22,7 @@ function App() {
         </ul></nav>
       </header></center>
 
-      { showModal && <MainModal id="mainModal" modalListener={setShowModal}></MainModal> }
+      { showModal && <MainModal id="mainModal" modalListener={setShowModal}></MainModal>}
 
       <PosterTable id="posterTable" modalListener={setShowModal}></PosterTable>
 

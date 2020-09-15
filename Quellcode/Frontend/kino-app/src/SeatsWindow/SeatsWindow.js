@@ -1,14 +1,17 @@
 import React, { Component } from 'react';
 import "./styles.less";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faWheelchair as faWheelchair } from '@fortawesome/free-solid-svg-icons'
 
 export class SeatsWindow extends Component {
 
     constructor(props) {
         super(props);
         // 0: frei, 1: selektiert, 2: schon gebucht
+        // seats: [ [alle aus row 1], [alle aus row2], ...]
         this.state = {
             seats: [
-                {
+                [{
                     id: 472,
                     row: 0,
                     col: 0,
@@ -23,26 +26,50 @@ export class SeatsWindow extends Component {
                     price: 22.44,
                     category: "handicap",
                     bookStatus: "0"
-                },
-                {
+                }],
+                [{
                     id: 474,
                     row: 1,
                     col: 0,
                     price: 22.44,
                     category: "normal",
                     bookStatus: "2"
-                },
-                {
-                    id: 475,
-                    row: 2,
-                    col: 0,
-                    price: 22.44,
-                    category: "normal",
-                    bookStatus: "0"
-                },
+                }
+                ], [
+                    {
+                        id: 475,
+                        row: 2,
+                        col: 0,
+                        price: 22.44,
+                        category: "normal",
+                        bookStatus: "0"
+                    }
+                ]
             ]
         };
-        // this.displayBookingScreen(props.movieName);
+    }
+
+    componentDidMount() {
+        // get seats data from backend
+        fetch("https://api.example.com/items")
+            .then(res => res.json())
+            .then(
+                (result) => {
+                    this.setState({
+                        isLoaded: true,
+                        items: result.items
+                    });
+                },
+                // Note: it's important to handle errors here
+                // instead of a catch() block so that we don't swallow
+                // exceptions from actual bugs in components.
+                (error) => {
+                    this.setState({
+                        isLoaded: true,
+                        error
+                    });
+                }
+            )
     }
 
     // Return JSX Elements in renderSeatPlan() function
@@ -170,35 +197,30 @@ export class SeatsWindow extends Component {
     //     }
     // }
 
-    renderSeatPlan() {
-        // seats muss nach row, col sortiert sein!
-        const rows = this.state.seats.map(seat => seat.row)
-            .filter((value, index, self) => {
-                return self.indexOf(value) === index;
-            });
-        console.log(rows);
-        return rows.map((row, index) => {
-            return (
-                <tr className>
-                    {this.renderSeatRow(row)}
-                </tr>
-            )
-        })
+    onSeatClicked(id) {
+        console.log(id);
     }
 
-    renderSeatRow(row) {
-        return this.state.seats.filter(seat => seat.row === row).map((seat, index) => {
-            const { id, row, col, category, bookStatus } = seat;
+    renderSeatPlan() {
+        return this.state.seats.map(seatRow => {
             return (
-                <td key={id}>
-                    <div className={(bookStatus === "2" && "seat-occupied")
-                        || (category === "normal" && "seat")
-                        || (category === "handicap" && "seat-handicap")} row={row} col={col} category={category} bookstatus={bookStatus}>
-                        {`${row},${col}`}
-                    </div>
-                </td>
+                <tr>
+                    {seatRow.map(seat => {
+                        const { id, row, col, category, bookStatus } = seat;
+                        const className = (bookStatus === "2" && "seat-occupied")
+                            || (category === "handicap" && "seat-handicap")
+                            || (category === "normal" && "seat");
+                        return (
+                            <td key={id} onClick={e => this.onSeatClicked(id)}>
+                                <div className={className}>
+                                    {category === "handicap" && <FontAwesomeIcon icon={faWheelchair} className="handicap-icon" />}
+                                </div>
+                            </td>
+                        )
+                    })}
+                </tr>
             )
-        })
+        });
     }
 
     renderPriceTable() {
