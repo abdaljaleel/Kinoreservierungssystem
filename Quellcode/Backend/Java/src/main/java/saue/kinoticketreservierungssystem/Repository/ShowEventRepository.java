@@ -11,6 +11,5 @@ import java.util.List;
 
 public interface ShowEventRepository extends CrudRepository<ShowEvent, Integer> {
     ShowEvent findById(int id);
-    @Query("SELECT se FROM ShowEvent se WHERE se.mid = ?1")
-    List<ShowEvent> getShowEventByMid(int mid);
+    List<ShowEvent> findByMid(int mid);
 }
