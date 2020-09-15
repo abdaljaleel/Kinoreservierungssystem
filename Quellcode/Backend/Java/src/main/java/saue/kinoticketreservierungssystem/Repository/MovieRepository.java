@@ -1,5 +1,6 @@
 package saue.kinoticketreservierungssystem.Repository;
 
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import saue.kinoticketreservierungssystem.entity.Movie;
 

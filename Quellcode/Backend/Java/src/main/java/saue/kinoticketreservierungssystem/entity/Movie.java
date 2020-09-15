@@ -1,6 +1,7 @@
 package saue.kinoticketreservierungssystem.entity;
 
 import javax.persistence.*;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -8,9 +9,12 @@ import java.util.Set;
 public class Movie {
     private String title, description, prodCountry, trailer; 
     private int length, fsk, bookedCounter;
+
+
     @Id private int MID;
 
-
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "mid")
+    private List<ShowEvent> event;
 
     @ManyToMany
     @JoinTable(
