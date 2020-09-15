@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import logo from './logo.svg';
-import './App.css';
+// import './App.css';
 import './styles.less';
 import { PosterTable } from './PosterTable/PosterTable';
 import { MainModal } from './MainModal/MainModal';

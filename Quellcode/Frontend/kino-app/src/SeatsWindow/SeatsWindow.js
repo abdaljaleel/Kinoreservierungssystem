@@ -187,13 +187,13 @@ export class SeatsWindow extends Component {
     }
 
     renderSeatRow(row) {
-        return this.state.seats.filter(seat => seat.row == row).map((seat, index) => {
+        return this.state.seats.filter(seat => seat.row === row).map((seat, index) => {
             const { id, row, col, category, bookStatus } = seat;
             return (
                 <td key={id}>
-                    <div className={(bookStatus == "2" && "seat-occupied")
-                        || (category == "normal" && "seat")
-                        || (category == "handicap" && "seat-handicap")} row={row} col={col} category={category} bookstatus={bookStatus}>
+                    <div className={(bookStatus === "2" && "seat-occupied")
+                        || (category === "normal" && "seat")
+                        || (category === "handicap" && "seat-handicap")} row={row} col={col} category={category} bookstatus={bookStatus}>
                         {`${row},${col}`}
                     </div>
                 </td>

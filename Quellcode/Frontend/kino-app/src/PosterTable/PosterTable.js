@@ -14,27 +14,27 @@ export class PosterTable extends Component {
                     title: "James Bond"
                 },
                 {
-                    id: 1,
+                    id: 2,
                     imgSrc: "Skyfall.jpg",
                     title: "James Bond"
                 },
                 {
-                    id: 1,
+                    id: 3,
                     imgSrc: "Skyfall.jpg",
                     title: "James Bond"
                 },
                 {
-                    id: 1,
+                    id: 4,
                     imgSrc: "Skyfall.jpg",
                     title: "James Bond"
                 },
                 {
-                    id: 1,
+                    id: 5,
                     imgSrc: "Skyfall.jpg",
                     title: "James Bond"
                 },
                 {
-                    id: 1,
+                    id: 6,
                     imgSrc: "Skyfall.jpg",
                     title: "James Bond"
                 },
