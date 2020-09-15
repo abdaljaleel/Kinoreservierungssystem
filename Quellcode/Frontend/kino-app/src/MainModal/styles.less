@@ -16,14 +16,14 @@
     cursor: pointer;
   }
   
-  .modal-body {
+  .modal-content {
       padding: 2px 16px;
-      height: 80%;
+      height: auto;
       display: flex;
       justify-content: space-between;
   }
   
-  .modal {
+  .modal-background {
     display: block; /* Hidden by default */
     position: fixed; /* Stay in place */
     z-index: 1; /* Sit on top */
@@ -37,7 +37,7 @@
     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
     }
     
-  .modal-content {
+  .modal {
     position: relative;
     background-color: #fefefe;
     margin: auto;
@@ -52,10 +52,9 @@
   }
 
 
-  /* Modal Footer ------*/
+/* Modal Footer ------*/
 .modal-footer {
-  width: 100%;
-  min-width: 100px;
+  display: flex;
   padding: 2px 16px;
   background-color: #6c838b;
   color: white;
@@ -70,10 +69,8 @@
   float: right;
   margin: 5px;
 }
-#btn-continue, #btn-back {
-  float: right;
-  clear: both;
 
+#btn-continue, #btn-back {
   margin-left: auto;
   margin-right: auto;
   height: 50px;

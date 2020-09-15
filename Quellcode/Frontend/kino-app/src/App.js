@@ -21,11 +21,9 @@ function App() {
         </ul></nav>
       </header></center>
 
-      { showModal && <MainModal id="mainModal"></MainModal> }
+      { showModal && <MainModal id="mainModal" modalListener={setShowModal}></MainModal> }
 
-      <PosterTable id="posterTable" posterClickListener={e => setShowModal()}></PosterTable>
-
-      <button onClick={e => setShowModal(true)}>Open Modal</button>
+      <PosterTable id="posterTable" modalListener={setShowModal}></PosterTable>
 
       <footer>
         copy right

@@ -25,25 +25,33 @@ export class MainModal extends Component {
         })
     }
 
+    closeModal() {
+        this.props.modalListener(false);
+    }
+
     render() {
         return (
-            <div id="main-modal" className="modal">
-                <div className="modal-content">
+            <div className="modal-background">
+                <div className="modal">
 
                     <div className="modal-header">
-                        <span className="close">&times;</span>
+                        <span className="close" onClick={e => this.closeModal()}>&times;</span>
                         <h2 id="modal-heading" className="modal-heading">Modal Header</h2>
                     </div>
 
-                    {this.state.currentWindow === 0 && <OverviewWindow id="modal-window-overview"></OverviewWindow>}
-
-                    {this.state.currentWindow === 1 && <SeatsWindow id="modal-window-seats" data-moviename="James Bond"></SeatsWindow>}
-
-                    {this.state.currentWindow === 2 && <PaymentWindow id="modal-window-payment"></PaymentWindow>}
+                    <div className="modal-content">
+                        {this.state.currentWindow === 0 && <OverviewWindow id="modal-window-overview"></OverviewWindow>}
+                        {this.state.currentWindow === 1 && <SeatsWindow id="modal-window-seats" data-moviename="James Bond"></SeatsWindow>}
+                        {this.state.currentWindow === 2 && <PaymentWindow id="modal-window-payment"></PaymentWindow>}
+                    </div>
 
                     <div className="modal-footer">
-                        <button id="btn-back" onClick={e => this.previousWindow()}>Zurück</button>
-                        <button id="btn-continue" onClick={e=> this.nextWindow()}>Weiter</button>
+                        <div className="button-footer-back">
+                            <button id="btn-back" onClick={e => this.previousWindow()}>Zurück</button>
+                        </div>
+                        <div className="button-footer-continue">
+                            <button id="btn-continue" onClick={e => this.nextWindow()}>Weiter</button>
+                        </div>
                     </div>
 
                 </div>

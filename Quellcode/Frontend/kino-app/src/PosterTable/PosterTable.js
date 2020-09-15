@@ -40,17 +40,18 @@ export class PosterTable extends Component {
                 },
             ]
         };
+        console.log(this.props);
     }
 
     onPosterClick() {
-        console.log("Poster Click");
+        this.props.modalListener(true);
     }
 
     renderMoviePosters() {
         return this.state.movies.map((movie, index) => {
             const { id, imgSrc, title } = movie;
             return (
-                <div className="moviePoster" key={id} onClick={this.onPosterClick}>
+                <div className="moviePoster" key={id} onClick={e => this.onPosterClick()}>
                     <img src={skyfallImg} className="moviePosterImage"></img>
                     <p className="moviePosterTitle">{title}</p>
                 </div>
