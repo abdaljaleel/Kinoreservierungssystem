@@ -4,7 +4,7 @@ body{
     background-image: url(static/6.jpg);
     margin: 10px auto;
     width: 100%;
-    clear: :both;
+    clear: both;
 
 }
 h1 {
@@ -319,18 +319,18 @@ i {
 
 .mainheader nav {
   background-color: #c0392b;
-background-width: 1250px;
+  /*background-width: 1250px;*/
   height: 40px;
   border-radius: 5px;
   -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;#
+  -moz-border-radius: 5px;
   margin: 0 auto;
   font-size: 90%;
   font-family: Arial, 'Lucida Sans Unicode';
   line-height: 1.5;
   text-align: left;
-
 }
+
 a{text-decoration: none;}
 
 .mainheader nav ul{
