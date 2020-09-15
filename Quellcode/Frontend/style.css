@@ -284,12 +284,12 @@ h1 {
 i {
   color:rgb(96, 98, 100);
 }
-
+/* 
 .modal-footer {
     padding: 2px 16px;
     background-color: #6c838b;
     color: white;
-  }
+  } */
 
   .seat {
     width: 30px;
@@ -317,6 +317,12 @@ i {
 
 /*---------------MEIN HEADER------------*/
 
+.mainheader {
+  left: 0;
+  right: 0;
+  width: 80%;
+}
+
 .mainheader nav {
   background-color: #c0392b;
   /*background-width: 1250px;*/
@@ -329,9 +335,12 @@ i {
   font-family: Arial, 'Lucida Sans Unicode';
   line-height: 1.5;
   text-align: left;
+  width: 100%;
 }
 
-a{text-decoration: none;}
+a {
+  text-decoration: none;
+}
 
 .mainheader nav ul{
   text-align: center;
@@ -341,7 +350,6 @@ a{text-decoration: none;}
 
 .mainheader nav ul li{
   display: inline;
-
 }
 
 .mainheader, a:link, a:visited{
@@ -350,6 +358,7 @@ a{text-decoration: none;}
   display: inline-block;
   height: 20px;
 }
+
 .mainheader a:hover, .mainheader a:active{
   color: blue;
   background-color: #f55233; 
