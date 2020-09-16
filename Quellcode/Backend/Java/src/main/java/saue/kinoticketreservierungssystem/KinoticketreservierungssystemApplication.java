@@ -9,7 +9,7 @@ import org.springframework.boot.web.servlet.support.SpringBootServletInitializer
 
 @SpringBootApplication//(exclude = RepositoryRestMvcAutoConfiguration.class)
 @EnableEncryptableProperties
-public class KinoticketreservierungssystemApplication  {
+public class KinoticketreservierungssystemApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(KinoticketreservierungssystemApplication.class, args);
