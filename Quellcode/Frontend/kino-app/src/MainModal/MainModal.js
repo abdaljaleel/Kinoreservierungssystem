@@ -1,8 +1,12 @@
 import React, { Component } from 'react';
 import "./styles.less";
 import { OverviewWindow } from '../OverviewWindow/OverviewWindow';
+import { ShowtimesWindow } from '../ShowtimesWindow/ShowtimesWindow';
 import { SeatsWindow } from '../SeatsWindow/SeatsWindow';
 import { PaymentWindow } from '../PaymentWindow/PaymentWindow';
+
+const firstWindow = 0;
+const lastWindow = 3;
 
 export class MainModal extends Component {
 
@@ -14,15 +18,21 @@ export class MainModal extends Component {
     }
 
     nextWindow() {
-        if (this.state.currentWindow < 2) this.setState({
-            currentWindow: this.state.currentWindow + 1
-        })
+        if (this.state.currentWindow < lastWindow)
+            this.setState({
+                currentWindow: this.state.currentWindow + 1
+            })
+        else
+        // TODO: hier muss zuerst das Ticket gebucht & bestätigt werden, danach das Modal schließen
+        this.closeModal();
     }
 
     previousWindow() {
-        if (this.state.currentWindow > 0) this.setState({
-            currentWindow: this.state.currentWindow - 1
-        })
+        if (this.state.currentWindow > firstWindow)
+            this.setState({
+                currentWindow: this.state.currentWindow - 1
+            })
+        else this.closeModal();
     }
 
     closeModal() {
@@ -41,16 +51,17 @@ export class MainModal extends Component {
 
                     <div className="modal-content">
                         {this.state.currentWindow === 0 && <OverviewWindow id="modal-window-overview"></OverviewWindow>}
-                        {this.state.currentWindow === 1 && <SeatsWindow id="modal-window-seats" data-moviename="James Bond"></SeatsWindow>}
-                        {this.state.currentWindow === 2 && <PaymentWindow id="modal-window-payment"></PaymentWindow>}
+                        {this.state.currentWindow === 1 && <ShowtimesWindow id="modal-window-showtimes"></ShowtimesWindow>}
+                        {this.state.currentWindow === 2 && <SeatsWindow id="modal-window-seats" data-moviename="James Bond"></SeatsWindow>}
+                        {this.state.currentWindow === 3 && <PaymentWindow id="modal-window-payment"></PaymentWindow>}
                     </div>
 
                     <div className="modal-footer">
                         <div className="button-footer-back">
-                            <button id="btn-back" onClick={e => this.previousWindow()}>Zurück</button>
+                            <button id="btn-back" onClick={e => this.previousWindow()}>{this.state.currentWindow === firstWindow ? "Abbrechen" : "Zurück"}</button>
                         </div>
                         <div className="button-footer-continue">
-                            <button id="btn-continue" onClick={e => this.nextWindow()}>Weiter</button>
+                            <button id="btn-continue" onClick={e => this.nextWindow()}>{this.state.currentWindow === lastWindow ? "Bestätigen" : "Weiter"}</button>
                         </div>
                     </div>
 
