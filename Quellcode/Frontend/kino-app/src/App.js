@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import logo from './logo.svg';
-// import './App.css';
+const axios = require('axios').default;
 import './styles.less';
 import { PosterTable } from './PosterTable/PosterTable';
 import { MainModal } from './MainModal/MainModal';
