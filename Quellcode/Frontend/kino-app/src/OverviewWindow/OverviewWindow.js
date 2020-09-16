@@ -1,5 +1,12 @@
 import React, { Component } from 'react';
 import "./styles.less";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faWheelchair } from '@fortawesome/free-solid-svg-icons';
+import { faUsersSlash } from '@fortawesome/free-solid-svg-icons';
+import { faStopwatch } from '@fortawesome/free-solid-svg-icons';
+import { faInfoCircle } from '@fortawesome/free-solid-svg-icons';
+import { faUsers } from '@fortawesome/free-solid-svg-icons';
+import { faStar } from '@fortawesome/free-solid-svg-icons';
 
 export class OverviewWindow extends Component {
 
@@ -25,25 +32,25 @@ export class OverviewWindow extends Component {
 
                 <div className="movie-description-center">
                     <div className="movie-fsk">
-                        <i className="fas fa-2x fa-user-slash"></i>
+                        <FontAwesomeIcon icon={faUsersSlash}></FontAwesomeIcon>
                         <a className="movie-description-content">12</a>
                     </div>
                     <div className="movie-length">
-                        <i className="fas fa-2x fa-stopwatch"></i>
+                        <FontAwesomeIcon icon={faStopwatch}></FontAwesomeIcon>
                         <a className="movie-description-content">120</a>
                     </div>
                     <div className="movie-genre">
-                        <i className="fas fa-2x fa-info-circle"></i>
+                        <FontAwesomeIcon icon={faInfoCircle}></FontAwesomeIcon>
                         <a className="movie-description-content">Action</a>
                     </div>
                     <div className="movie-actors">
-                        <i className="fas fa-2x fa-users"></i>
+                        <FontAwesomeIcon icon={faUsers}></FontAwesomeIcon>
                         <a className="movie-description-content">Daniel Craig</a>
                         <p></p>
                         <a className="movie-description-content">Daniel Craig</a>
                     </div>
                     <div className="movie-regisseur">
-                        <i className="fas fa-2x fa-star"></i>
+                        <FontAwesomeIcon icon={faStar}></FontAwesomeIcon>
                         <a className="movie-description-content">Sam Mendes</a>
                     </div>
                 </div>
