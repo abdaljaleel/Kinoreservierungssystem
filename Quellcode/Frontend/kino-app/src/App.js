@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-const axios = require('axios').default;
 import './styles.less';
 import { PosterTable } from './PosterTable/PosterTable';
 import { MainModal } from './MainModal/MainModal';
