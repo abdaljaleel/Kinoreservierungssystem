@@ -6,7 +6,6 @@ import javax.persistence.ManyToOne;
 import java.time.LocalDateTime;
 
 @Entity
-
 public class ShowEvent {
     @Id
     private int sID;
@@ -25,12 +24,12 @@ public class ShowEvent {
         this.sID = sID;
     }
 
-    public LocalDateTime getDataTime() {
+    public LocalDateTime getDateTime() {
         return dateTime;
     }
 
-    public void setDataTime(LocalDateTime dataTime) {
-        this.dateTime = dataTime;
+    public void setDateTime(LocalDateTime dateTime) {
+        this.dateTime = dateTime;
     }
 
     public boolean isIs3D() {
