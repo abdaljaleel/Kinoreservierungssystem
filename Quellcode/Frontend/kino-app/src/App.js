@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-// Nötig für Bootstrap, killt aber die Modal Styles
-// import 'bootstrap/dist/css/bootstrap.min.css';
+// Nötig für Bootstrap, macht noch CSS Probleme
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles.less';
-import { PosterTable } from './PosterTable/PosterTable';
-import { MainModal } from './MainModal/MainModal';
+import {PosterTable} from './PosterTable/PosterTable';
+import MainModal from './MainModal/MainModal';
 
 function App() {
   const [showModal, setShowModal] = useState(false);
