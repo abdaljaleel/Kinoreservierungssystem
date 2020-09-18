@@ -2,6 +2,7 @@ import React, { Component, useState, useEffect } from 'react';
 import "./styles.less";
 import api from '../api';
 import OutsideClickHandler from 'react-outside-click-handler';
+import Button from 'react-bootstrap/Button';
 import OverviewWindow from '../OverviewWindow/OverviewWindow';
 import ShowtimesWindow from '../ShowtimesWindow/ShowtimesWindow';
 import SeatsWindow from '../SeatsWindow/SeatsWindow';
@@ -9,17 +10,17 @@ import PaymentWindow from '../PaymentWindow/PaymentWindow';
 
 const firstWindow = 0;
 const lastWindow = 3;
+const infoStages = ["Überblick", "Vorstellung wählen", "Sitzplätze wählen", "Tickets buchen"];
 
 const MainModal = (props) => {
     const [currentWindow, setCurrentWindow] = useState(firstWindow);
     const [selectedMovie, setSelectedMovie] = useState({});
-    const [tempBooking, setTempBooking] = useState({
+    const tempBooking = {
         Booking: {},
-        Seats: [{ seatId: undefined, isDiscounted: undefined }],
+        seats: [{ seatId: undefined, isDiscounted: undefined }],
         cuId: "1",
         showEventId: undefined,
-    });
-
+    }
     // senden
     // const booking_DB = {
     //     Booking: {},
@@ -31,6 +32,15 @@ const MainModal = (props) => {
     // const booking = {
     //     totalPrice: "1"
     // }
+
+    const handleSeatChange = (seats) => {
+        tempBooking.seats = seats;
+    }
+    const handleShowEventIdChange = (showEventId) => {
+        tempBooking.showEventId = showEventId;
+    }
+
+
 
     useEffect(() => {
         api.get(`/movies/${props.movieId}`)
@@ -83,17 +93,24 @@ const MainModal = (props) => {
 
                     <div className="movie-modal-content">
                         {currentWindow === 0 && <OverviewWindow id="modal-window-overview" movie={selectedMovie}></OverviewWindow>}
-                        {currentWindow === 1 && <ShowtimesWindow id="modal-window-showtimes" movieId={props.movieId}></ShowtimesWindow>}
-                        {currentWindow === 2 && <SeatsWindow id="modal-window-seats" movieId={props.movieId}></SeatsWindow>}
+                        {currentWindow === 1 && <ShowtimesWindow id="modal-window-showtimes" handleShowEventIdChange={handleShowEventIdChange} movieId={props.movieId}></ShowtimesWindow>}
+                        {currentWindow === 2 && <SeatsWindow id="modal-window-seats" handleSeatChange={handleSeatChange} movieId={props.movieId} movie={selectedMovie}></SeatsWindow>}
                         {currentWindow === 3 && <PaymentWindow id="modal-window-payment"></PaymentWindow>}
                     </div>
 
                     <div className="movie-modal-footer">
                         <div className="button-footer-back">
-                            <button id="btn-back" onClick={e => previousWindow()}>{currentWindow === firstWindow ? "Abbrechen" : "Zurück"}</button>
+                            <Button id="btn-back" onClick={e => previousWindow()}>
+                                {currentWindow === firstWindow ? "Abbrechen" : "Zurück"}
+                            </Button>
+                        </div>
+                        <div className="movie-modal-stage-text">
+                            {infoStages[currentWindow]}
                         </div>
                         <div className="button-footer-continue">
-                            <button id="btn-continue" onClick={e => nextWindow()}>{currentWindow === lastWindow ? "Bestätigen" : "Weiter"}</button>
+                            <Button id="btn-continue" onClick={e => nextWindow()}>
+                                {currentWindow === lastWindow ? "Bestätigen" : "Weiter"}
+                            </Button>
                         </div>
                     </div>
                 </OutsideClickHandler>

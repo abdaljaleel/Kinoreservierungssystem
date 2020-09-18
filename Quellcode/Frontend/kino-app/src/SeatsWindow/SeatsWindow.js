@@ -2,130 +2,129 @@ import React, { Component, useState } from 'react';
 import "./styles.less";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faWheelchair } from '@fortawesome/free-solid-svg-icons'
+import { faHeart } from '@fortawesome/free-solid-svg-icons'
 
-const SeatsWindow = () => {
-
-    
-
+const SeatsWindow = (props) => {
 
     // statisch: Rabatt -2€
     // sortiert: row, col
     // PK: seatId
     const [seats, setSeats] = useState([
-        [{
+        {
             id: 472,
             row: 0,
             col: 0,
             price: 22.44,
-            category: "normal",
-            bookStatus: "0",
-            // type: "normal | paarsitz | handicap",
-            // category: "loge | parkett",
-            // price: "3 | 8 | 12"
+            category: "loge",
+            type: "normal",
+            bookStatus: "0"
         },
         {
             id: 473,
             row: 0,
             col: 1,
             price: 22.44,
-            category: "handicap",
+            category: "loge",
+            type: "paarsitz",
             bookStatus: "0"
-        }],
-        [{
+        },
+        {
             id: 474,
             row: 1,
             col: 0,
             price: 22.44,
-            category: "normal",
+            category: "parkett",
+            type: "handicap",
+            bookStatus: "0"
+        },
+        {
+            id: 475,
+            row: 2,
+            col: 0,
+            price: 22.44,
+            category: "parkett",
+            type: "normal",
             bookStatus: "2"
         }
-        ], [
-            {
-                id: 475,
-                row: 2,
-                col: 0,
-                price: 22.44,
-                category: "normal",
-                bookStatus: "0"
-            }
-        ]
     ]);
 
-
-    // componentDidMount() {
-    // get seats data from backend
-    // fetch("https://api.example.com/items")
-    //     .then(res => res.json())
-    //     .then(
-    //         (result) => {
-    //             this.setState({
-    //                 isLoaded: true,
-    //                 items: result.items
-    //             });
-    //         },
-    //         // Note: it's important to handle errors here
-    //         // instead of a catch() block so that we don't swallow
-    //         // exceptions from actual bugs in components.
-    //         (error) => {
-    //             this.setState({
-    //                 isLoaded: true,
-    //                 error
-    //             });
-    //         }
-    //     )
-    // Make a request for a user with a given ID
-    // axios.get('/user?ID=12345')
-    //     .then(function (response) {
-    //         // handle success
-    //         console.log(response);
-    //     })
-    //     .catch(function (error) {
-    //         // handle error
-    //         console.log(error);
-    //     })
-    //     .then(function () {
-    //         // always executed
-    //     });
-    // }
-
-    // const randomBookStatus = [0, 2][Math.floor(Math.random() * 2)];
-    // const randomCategory = [["normal", 9], ["handicap", 3]][Math.floor(Math.random() * 2)];
-
-
     function onSeatClicked(id, row) {
-        console.log(id, row);
-        setSeats(seats.map((seatRow, index) => {
-            if (index === row) {
-                seatRow = seatRow.map(seat => {
-                    return (seat.id === id && seat.bookStatus !== "2") ? { ...seat, bookStatus: seat.bookStatus === "0" ? "1" : "0" } : seat;
-                })
-            }
-            return seatRow;
+        // lift state up here? MainModal could know selected seats...
+        setSeats(seats.map((seat) => {
+            return seat.id === id && seat.bookStatus !== "2" ? {
+                ...seat,
+                bookStatus: seat.bookStatus === "0" ? "1" : "0"
+            } : seat;
         }));
-        console.log(seats);
     }
 
     function renderSeatPlan() {
-        return seats.map(seatRow => {
+        let seatsByRow = [];
+        // find unique rows
+        let uniqueRows = seats.map(s => s.row).filter((row, i, array) => array.indexOf(row) === i);
+        for (const row of uniqueRows) {
+            let tempRow = seats.filter(s => s.row === row);
+            seatsByRow.push(tempRow);
+        }
+        // return seats in <tr> by row
+        return (seatsByRow.map(row => {
             return (
                 <tr>
-                    {seatRow.map(seat => {
-                        const { id, row, col, category, bookStatus } = seat;
+                    {row.map(seat => {
+                        const { id, row, col, category, type, bookStatus } = seat;
                         const className = (bookStatus === "2" && "seat-occupied")
                             || (bookStatus === "1" && "seat-selected")
-                            || (category === "handicap" && "seat-handicap")
-                            || (category === "normal" && "seat");
+                            || (type === "handicap" && "seat-handicap")
+                            || (type === "paarsitz" && "seat-couple")
+                            || (type === "normal" && "seat");
                         return (
-                            <td key={id} onClick={e => onSeatClicked(id, row)}>
+                            <td id={id} onClick={e => bookStatus !== "2" && onSeatClicked(id, row, col)}>
                                 <div className={className}>
-                                    {category === "handicap" && <FontAwesomeIcon icon={faWheelchair} className="handicap-icon" />}
+                                    {
+                                        (type === "handicap" && <FontAwesomeIcon icon={faWheelchair} className="handicap-icon" />)
+                                        || (type === "paarsitz" && <FontAwesomeIcon icon={faHeart} className="handicap-icon" />)
+                                    }
                                 </div>
                             </td>
                         )
                     })}
                 </tr>
             )
-        });
+        })
+        )
+    }
+
+    function renderPriceTable() {
+        return seats.filter(s => s.bookStatus === "1").map(seat => {
+            return (
+                <tr className="price-table-row">
+                    <td className="price-table-data">
+                        {`${props.movie.title} - 01.01.2020, XX:XX Uhr - ${seat.type}, ${seat.category}`}
+                    </td>
+                    <td className="price-table-data">
+                        {`${Math.round(seat.price * 100) / 100} €`}
+                    </td>
+                </tr>
+            )
+        })
+    }
+
+    function renderSum() {
+        let selectedSeats = seats.filter(s => s.bookStatus === "1");
+        // notify MainModal
+        props.handleSeatChange(selectedSeats);
+        console.log(selectedSeats);
+        let totalPrice = 0;
+        if (selectedSeats.length !== 0) {
+            totalPrice = selectedSeats.map(seat => seat.price).reduce((prev, curr) => prev + curr);
+            totalPrice = Math.round(totalPrice * 100) / 100;
+        }
+        return (
+            <tr className="price-table-row">
+                <td className="price-table-data">{`${selectedSeats.length} x ${props.movie.title}`}</td>
+                <td id="price-sum" className="price-table-data">{`${totalPrice} €`}</td>
+            </tr>
+        )
     }
 
 
@@ -144,15 +143,11 @@ const SeatsWindow = () => {
                 <div className="seats-prices" id="seats-prices">
                     <p><strong>Aktuelle Auswahl: <span id="totalNoTickets">0</span> Tickets</strong></p>
                     <table className="price-table" id="ticketPriceTable">
-                        <tbody>a</tbody>
+                        <tbody>{renderPriceTable()}</tbody>
                     </table>
                     <hr id="sum-line" />
                     <table className="price-table">
-                        <tbody>
-                            <tr className="price-table-row">
-                                <td className="price-table-data">Summe</td>
-                                <td id="price-sum" className="price-table-data">0.00 €</td>
-                            </tr></tbody>
+                        <tbody>{renderSum()}</tbody>
                     </table>
                 </div>
             </div>
