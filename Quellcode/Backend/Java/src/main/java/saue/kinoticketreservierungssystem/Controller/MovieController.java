@@ -20,7 +20,7 @@ public class MovieController {
     private MovieRepository movieRepository;
 
 
-    @GetMapping(value= "/movies", produces= MediaType.APPLICATION_JSON_VALUE)
+/*    @GetMapping(value= "/movies", produces= MediaType.APPLICATION_JSON_VALUE)
     public List<Movie> getMovies() {
         return (List<Movie>) movieRepository.findAll();
     }
@@ -28,5 +28,5 @@ public class MovieController {
     @GetMapping(value = "/movie")
     public Movie getMovie(@RequestParam("mid") int mid) {
         return movieRepository.findById(mid);
-    }
+    }*/
 }

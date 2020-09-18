@@ -12,6 +12,6 @@ public interface ShowEventRepository extends CrudRepository<ShowEvent, Integer> 
 
     @Query("select se from ShowEvent se where se.dateTime = current_date")
     List<ShowEvent> findAll();
-    ShowEvent findById(int id);
+    //ShowEvent findById(int id);
     List<ShowEvent> findByMid(int mid);
 }

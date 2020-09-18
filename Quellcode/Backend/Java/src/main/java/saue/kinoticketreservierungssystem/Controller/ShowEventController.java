@@ -15,12 +15,12 @@ ShowEventController {
     @Autowired
     private ShowEventRepository showEventRepository;
 
-    @GetMapping(value = "/showEvents")
+    /*@GetMapping(value = "/showEvents")
     public List<ShowEvent> getShowEvents() {
         return (List<ShowEvent>) showEventRepository.findAll();
     }
     @GetMapping(value = "/showEvent")
     public ShowEvent getShowEvent(@RequestParam("sid") int sid) {
         return showEventRepository.findById(sid);
-    }
+    }*/
 }
