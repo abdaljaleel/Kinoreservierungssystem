@@ -70,25 +70,25 @@ const MainModal = (props) => {
 
 
     return (
-        <div className="modal-background">
-            <div className="modal-wrapper">
+        <div className="movie-modal-background">
+            <div className="movie-modal-wrapper">
                 <OutsideClickHandler onOutsideClick={() => {
                     console.log("abc");
                     closeModal();
                 }}>
-                    <div className="modal-header">
+                    <div className="movie-modal-header">
+                        <h2 className="movie-modal-heading">{selectedMovie.title}</h2>
                         <span className="close" onClick={e => closeModal()}>&times;</span>
-                        <h2 id="modal-heading" className="modal-heading">{selectedMovie.title}</h2>
                     </div>
 
-                    <div className="modal-content">
+                    <div className="movie-modal-content">
                         {currentWindow === 0 && <OverviewWindow id="modal-window-overview" movie={selectedMovie}></OverviewWindow>}
                         {currentWindow === 1 && <ShowtimesWindow id="modal-window-showtimes" movieId={props.movieId}></ShowtimesWindow>}
                         {currentWindow === 2 && <SeatsWindow id="modal-window-seats" movieId={props.movieId}></SeatsWindow>}
                         {currentWindow === 3 && <PaymentWindow id="modal-window-payment"></PaymentWindow>}
                     </div>
 
-                    <div className="modal-footer">
+                    <div className="movie-modal-footer">
                         <div className="button-footer-back">
                             <button id="btn-back" onClick={e => previousWindow()}>{currentWindow === firstWindow ? "Abbrechen" : "Zurück"}</button>
                         </div>
