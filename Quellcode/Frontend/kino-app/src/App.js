@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 // Nötig für Bootstrap, macht noch CSS Probleme
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles.less';
-import {PosterTable} from './PosterTable/PosterTable';
+import PosterTable from './PosterTable/PosterTable';
 import MainModal from './MainModal/MainModal';
 
 function App() {
