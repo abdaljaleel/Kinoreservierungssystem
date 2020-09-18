@@ -1,5 +1,6 @@
-import React, { Component, useState } from 'react';
+import React, { Component, useState, useEffect } from 'react';
 import "./styles.less";
+import api from '../api';
 import OutsideClickHandler from 'react-outside-click-handler';
 import OverviewWindow from '../OverviewWindow/OverviewWindow';
 import ShowtimesWindow from '../ShowtimesWindow/ShowtimesWindow';
@@ -11,6 +12,43 @@ const lastWindow = 3;
 
 const MainModal = (props) => {
     const [currentWindow, setCurrentWindow] = useState(firstWindow);
+    const [selectedMovie, setSelectedMovie] = useState({});
+    const [tempBooking, setTempBooking] = useState({
+        Booking: {},
+        Seats: [{ seatId: undefined, isDiscounted: undefined }],
+        cuId: "1",
+        showEventId: undefined,
+    });
+
+    // senden
+    // const booking_DB = {
+    //     Booking: {},
+    //     Seats: [{ seatId: "id", isDiscounted: "true" }],
+    //     cuId: "1",
+    //     showEventId: "1"
+    // }
+    // empfangen, wenn price ==, dann an paypal schicken, dann zurück ans backend die gleiche Buchung mit isPaid = true, sonst abbrechen
+    // const booking = {
+    //     totalPrice: "1"
+    // }
+
+    useEffect(() => {
+        api.get(`/movies/${props.movieId}`)
+            .then(res => {
+                console.log(res.data);
+                const movie = res.data;
+                const { title, description, prodCountry, trailer, length, fsk, bookedCounter } = movie;
+                setSelectedMovie({
+                    title: title,
+                    description: description,
+                    prodCountry: prodCountry,
+                    trailer: trailer,
+                    length: length,
+                    fsk: fsk,
+                    bookedCounter: bookedCounter
+                })
+            });
+    }, [])
 
     function nextWindow() {
         if (currentWindow < lastWindow)
@@ -27,25 +65,26 @@ const MainModal = (props) => {
     }
 
     function closeModal() {
-        props.modalListener(false);
+        props.setSelectedMovieId(-1);
     }
 
 
     return (
         <div className="modal-background">
-            <OutsideClickHandler onOutsideClick={() => {
-                closeModal();
-            }}>
-                <div className="modal-wrapper">
+            <div className="modal-wrapper">
+                <OutsideClickHandler onOutsideClick={() => {
+                    console.log("abc");
+                    closeModal();
+                }}>
                     <div className="modal-header">
                         <span className="close" onClick={e => closeModal()}>&times;</span>
-                        <h2 id="modal-heading" className="modal-heading">Modal Header</h2>
+                        <h2 id="modal-heading" className="modal-heading">{selectedMovie.title}</h2>
                     </div>
 
                     <div className="modal-content">
-                        {currentWindow === 0 && <OverviewWindow id="modal-window-overview"></OverviewWindow>}
-                        {currentWindow === 1 && <ShowtimesWindow id="modal-window-showtimes"></ShowtimesWindow>}
-                        {currentWindow === 2 && <SeatsWindow id="modal-window-seats" data-moviename="James Bond"></SeatsWindow>}
+                        {currentWindow === 0 && <OverviewWindow id="modal-window-overview" movie={selectedMovie}></OverviewWindow>}
+                        {currentWindow === 1 && <ShowtimesWindow id="modal-window-showtimes" movieId={props.movieId}></ShowtimesWindow>}
+                        {currentWindow === 2 && <SeatsWindow id="modal-window-seats" movieId={props.movieId}></SeatsWindow>}
                         {currentWindow === 3 && <PaymentWindow id="modal-window-payment"></PaymentWindow>}
                     </div>
 
@@ -57,8 +96,8 @@ const MainModal = (props) => {
                             <button id="btn-continue" onClick={e => nextWindow()}>{currentWindow === lastWindow ? "Bestätigen" : "Weiter"}</button>
                         </div>
                     </div>
-                </div>
-            </OutsideClickHandler>
+                </OutsideClickHandler>
+            </div>
         </div>
     )
 }

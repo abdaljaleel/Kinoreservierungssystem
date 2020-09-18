@@ -15,21 +15,28 @@ const PosterTable = (props) => {
                 setMovies(
                     movies.map(movie => {
                         const { mid, title, imgSrc } = movie;
-                        return { id: mid, title: title, imgSrc: imgSrc };
-                    }));
-            });
+                        return {
+                            id: mid,
+                            title: title,
+                            imgSrc: imgSrc
+                        };
+                    })
+                );
+            })
     }, [])
 
 
-    function onPosterClick() {
-        props.modalListener(true);
+    function onPosterClick(id) {
+        console.log(id);
+        console.log(props);
+        props.setSelectedMovieId(id);
     }
 
     function renderMoviePosters() {
         return movies.map((movie) => {
-            const { id, imgSrc, title } = movie;
+            const { id, title, imgSrc } = movie;
             return (
-                <div className="moviePoster" key={id} onClick={e => onPosterClick()}>
+                <div className="moviePoster" key={id} onClick={e => onPosterClick(id)}>
                     { imgSrc !== undefined ? <img src={imgSrc} className="moviePosterImage"></img>
                         : <FontAwesomeIcon className="moviePosterImage" icon={faFilm} size="3x"></FontAwesomeIcon>}
                     <p className="moviePosterTitle">{title}</p>

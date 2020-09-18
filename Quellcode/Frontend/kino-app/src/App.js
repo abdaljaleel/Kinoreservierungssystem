@@ -6,7 +6,7 @@ import PosterTable from './PosterTable/PosterTable';
 import MainModal from './MainModal/MainModal';
 
 function App() {
-  const [showModal, setShowModal] = useState(false);
+  const [selectedMovieId, setSelectedMovieId] = useState(-1);
 
   return (
     <div className="App">
@@ -21,9 +21,9 @@ function App() {
         </ul></nav>
       </header></center>
 
-      { showModal && <MainModal id="mainModal" modalListener={setShowModal}></MainModal>}
+      { selectedMovieId !== -1 && <MainModal id="mainModal" setSelectedMovieId={setSelectedMovieId} movieId={selectedMovieId}></MainModal>}
 
-      <PosterTable id="posterTable" modalListener={setShowModal}></PosterTable>
+      <PosterTable id="posterTable" setSelectedMovieId={setSelectedMovieId}></PosterTable>
 
       <footer>
         copy right

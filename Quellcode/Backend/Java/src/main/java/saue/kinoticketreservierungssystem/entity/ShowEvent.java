@@ -6,21 +6,20 @@ import java.time.LocalDateTime;
 
 @Entity
 public class ShowEvent {
-    @Id
-    private int sID;
+
+    @Id private int SID;
     private LocalDateTime showTime;
     private boolean is3D;
     private int mid;
     private int sepId;
 
 
-
-    public int getsID() {
-        return sID;
+    public int getSID() {
+        return SID;
     }
 
-    public void setsID(int sID) {
-        this.sID = sID;
+    public void setSID(int SID) {
+        this.SID = SID;
     }
 
     public LocalDateTime getShowTime() {
@@ -53,5 +52,9 @@ public class ShowEvent {
 
     public void setSepId(int sepId) {
         this.sepId = sepId;
+    }
+
+    public ShowEvent() {
+
     }
 }

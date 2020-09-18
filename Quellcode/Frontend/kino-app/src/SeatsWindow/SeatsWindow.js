@@ -5,18 +5,7 @@ import { faWheelchair } from '@fortawesome/free-solid-svg-icons'
 
 const SeatsWindow = () => {
 
-    // senden
-    const booking_DB= {
-        Booking: {},
-        Seats: [{seatId: "id", isDiscounted:"true"}],
-        cuId: "1",
-        showEventId: "1"
-    }
-
-    // empfangen, wenn price ==, dann an paypal schicken, dann zurück ans backend die gleiche Buchung mit isPaid = true, sonst abbrechen
-    const booking = {
-        totalPrice: "1"
-    }
+    
 
 
     // statisch: Rabatt -2€
@@ -30,9 +19,9 @@ const SeatsWindow = () => {
             price: 22.44,
             category: "normal",
             bookStatus: "0",
-            type: "normal | paarsitz | handicap",
-            category: "loge | parkett",
-            price: "3 | 8 | 12"
+            // type: "normal | paarsitz | handicap",
+            // category: "loge | parkett",
+            // price: "3 | 8 | 12"
         },
         {
             id: 473,
