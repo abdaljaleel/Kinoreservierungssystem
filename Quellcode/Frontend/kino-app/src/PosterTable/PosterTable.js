@@ -10,7 +10,7 @@ export class PosterTable extends Component {
     componentDidMount() {
         api.get('/movies')
             .then(res => {
-                const movies = res.data;
+                const movies = res.data._embedded.movies;
                 this.setState({
                     movies: movies.map(movie => {
                         const { mid, title, imgSrc } = movie;
