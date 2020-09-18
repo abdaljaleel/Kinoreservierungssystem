@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
-import logo from './logo.svg';
-// import './App.css';
+// Nötig für Bootstrap, macht noch CSS Probleme
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles.less';
-import { PosterTable } from './PosterTable/PosterTable';
-import { MainModal } from './MainModal/MainModal';
-
+import {PosterTable} from './PosterTable/PosterTable';
+import MainModal from './MainModal/MainModal';
 
 function App() {
   const [showModal, setShowModal] = useState(false);
@@ -32,9 +31,6 @@ function App() {
     </div>
   );
 }
-
-
-
 
 
 
