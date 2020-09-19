@@ -84,19 +84,23 @@ const ShowtimesWindow = (props) => {
 
     return (
         <div>
-            <Dropdown>
-                <Dropdown.Toggle>{selectedShow === undefined ? "Datum wählen" : selectedShow.showDate}</Dropdown.Toggle>
-                <Dropdown.Menu>
-                    {renderShowDates()}
-                </Dropdown.Menu>
-            </Dropdown>
+            <div className="dropdown-showDates">
+                <Dropdown>
+                    <Dropdown.Toggle>{selectedShow === undefined ? "Datum wählen" : selectedShow.showDate}</Dropdown.Toggle>
+                    <Dropdown.Menu>
+                        {renderShowDates()}
+                    </Dropdown.Menu>
+                </Dropdown>
+            </div>
 
-            <Dropdown>
-                <Dropdown.Toggle>{selectedShow === undefined ? "Zeit wählen" : selectedShow.showTime}</Dropdown.Toggle>
-                <Dropdown.Menu>
-                    {renderShowTimes()}
-                </Dropdown.Menu>
-            </Dropdown>
+            <div className="dropdown-showTime">
+                <Dropdown>
+                    <Dropdown.Toggle>{selectedShow === undefined ? "Zeit wählen" : selectedShow.showTime}</Dropdown.Toggle>
+                    <Dropdown.Menu>
+                        {renderShowTimes()}
+                    </Dropdown.Menu>
+                </Dropdown>
+            </div>
         </div>
     );
 }
