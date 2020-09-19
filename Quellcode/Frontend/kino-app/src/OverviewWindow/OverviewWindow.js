@@ -27,7 +27,7 @@ const OverviewWindow = (props) => {
                     </div>
                     <div className="movie-length">
                         <FontAwesomeIcon icon={faStopwatch}></FontAwesomeIcon>
-                        <a className="movie-description-content">{props.movie.length}</a>
+                        <a className="movie-description-content">{props.movie.length} Min.</a>
                     </div>
                     <div className="movie-genre">
                         <FontAwesomeIcon icon={faInfoCircle}></FontAwesomeIcon>
