@@ -20,8 +20,51 @@ public class Movie {
     @JoinTable(
             name = "movie_genre",
             joinColumns = @JoinColumn(name = "mid"),
-            inverseJoinColumns = @JoinColumn(name = "GID"))
+            inverseJoinColumns = @JoinColumn(name = "GID")
+    )
     private Set<Genre> genres;
+
+    @ManyToMany
+    @JoinTable(
+            name = "plays_in",
+            joinColumns = @JoinColumn(name = "mid"),
+            inverseJoinColumns = @JoinColumn(name = "pid")
+    )
+    private Set<Person> actors;
+
+    @ManyToMany
+    @JoinTable(
+            name = "directs",
+            joinColumns = @JoinColumn(name = "mid"),
+            inverseJoinColumns = @JoinColumn(name = "pid")
+    )
+    private Set<Person> directors;
+
+    public Set<Person> getDirectors() {
+        return directors;
+    }
+
+    public void setDirectors(Set<Person> directors) {
+        this.directors = directors;
+    }
+
+
+
+    public List<ShowEvent> getEvent() {
+        return event;
+    }
+
+    public void setEvent(List<ShowEvent> event) {
+        this.event = event;
+    }
+
+    public Set<Person> getActors() {
+        return actors;
+    }
+
+    public void setActors(Set<Person> actors) {
+        this.actors = actors;
+    }
 
     public Set<Genre> getGenres() {
         return genres;
@@ -94,10 +137,5 @@ public class Movie {
     public void setBookedCounter(int bookedCounter) {
         this.bookedCounter = bookedCounter;
     }
-
-
-    public Movie(){
-    }
-
 
 }

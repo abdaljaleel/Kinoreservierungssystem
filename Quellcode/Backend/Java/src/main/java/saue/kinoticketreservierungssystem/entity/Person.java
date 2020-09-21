@@ -6,16 +6,16 @@ import javax.persistence.Id;
 @Entity
 public class Person {
     @Id
-    private int pId;
+    private int pid;
     private String firstName;
     private String lastName;
 
-    public int getpId() {
-        return pId;
+    public int getPid() {
+        return pid;
     }
 
-    public void setpId(int pId) {
-        this.pId = pId;
+    public void setPid(int pid) {
+        this.pid = pid;
     }
 
     public String getFirstName() {
