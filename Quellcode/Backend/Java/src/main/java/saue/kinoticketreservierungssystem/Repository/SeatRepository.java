@@ -10,7 +10,7 @@ import java.util.List;
 
 public interface SeatRepository extends CrudRepository<Seat, Integer> {
 
-    @Query(value = "select s from Seatplan as sp inner join  Seat s on sp.SpID = s.sp_id where sp.SpID = (select se.sepId from ShowEvent se where se.sID = ?1)")
+    @Query(value = "select s from Seatplan as sp inner join  Seat s on sp.SpID = s.sp_id where sp.SpID = (select se.sepId from ShowEvent se where se.SID = ?1)")
     List<Seat> findBySID(int sid);
 
 }
