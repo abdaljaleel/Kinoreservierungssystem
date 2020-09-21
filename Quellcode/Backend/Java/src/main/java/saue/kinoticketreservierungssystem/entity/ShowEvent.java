@@ -26,7 +26,7 @@ public class ShowEvent {
     }
 
     public int getsID() {
-        return sID;
+        return SID;
     }
 
     public void setSID(int SID) {
