@@ -6,28 +6,41 @@ import PosterTable from './PosterTable/PosterTable';
 import MainModal from './MainModal/MainModal';
 import MainNavigation from './navbar Components/Navigation/MainNavigation';
 import MainFooter from './footer Component/footer/MainFooter';
+
+const windows = ["home", "contact", "imprint", "faq"];
+
 function App() {
+  const [currentWindow, setCurrentWindow] = useState(1);
   const [selectedMovieId, setSelectedMovieId] = useState(-1);
 
   return (
     <div className="App">
-      <canvas id="titleCanvas"></canvas>
 
-      <React.Fragment>     
-      <MainNavigation/>
+      <div className="cinema-title">Kino XY</div>
+
+      <React.Fragment>
+        <MainNavigation setCurrentWindow={setCurrentWindow} />
       </React.Fragment>
 
-      { selectedMovieId !== -1 && <MainModal id="mainModal" setSelectedMovieId={setSelectedMovieId} movieId={selectedMovieId}></MainModal>}
+      <div className="app-content">
 
-      <PosterTable id="posterTable" setSelectedMovieId={setSelectedMovieId}></PosterTable>
+        {
+          (currentWindow === 0 && "home")
+          || (currentWindow === 1 && "contact")
+          || (currentWindow === 2 && "imprint")
+          || (currentWindow === 3 && "faq")
+        }
 
-      <MainFooter/>
+        {(selectedMovieId !== -1) && <MainModal id="mainModal" setSelectedMovieId={setSelectedMovieId} movieId={selectedMovieId}></MainModal>}
+        <PosterTable id="posterTable" setSelectedMovieId={setSelectedMovieId}></PosterTable>
 
-    
+      </div>
+
+      <MainFooter />
+
     </div>
-    
   );
-  
+
 }
 
 export default App;
