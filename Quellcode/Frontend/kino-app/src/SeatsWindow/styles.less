@@ -55,11 +55,14 @@
     float: left;
     overflow: auto;
   }
+
+  @seatWidth: 24px;
+  @seatHeight: 24px;
   
   .seat {
     margin: 5px;
-    width: 24px;
-    height: 24px;
+    width: @seatWidth;
+    height: @seatHeight;
     background-color: white;
     border: 1px solid gray;
   //   background-color:#E0E5EC;
@@ -68,7 +71,7 @@
     cursor: pointer;
     vertical-align: bottom;
   }
-  .seat-handicap{
+  .seat-handicap {
       .seat();
       // white-space: nowrap;
       background-color: lightskyblue;
@@ -77,8 +80,14 @@
       // vertical-align: bottom;
   }
   .handicap-icon{
-    padding: 5px;
-      color: white;
+    // padding: 5px;
+    margin: auto;
+    color: white;
+  }
+  .seat-couple {
+    .seat();
+    // width: @seatWidth*2;
+    background-color: lightpink;
   }
   .seat-occupied {
     .seat();

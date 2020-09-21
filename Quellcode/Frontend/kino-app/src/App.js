@@ -2,36 +2,45 @@ import React, { useState } from 'react';
 // Nötig für Bootstrap, macht noch CSS Probleme
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles.less';
-import {PosterTable} from './PosterTable/PosterTable';
+import PosterTable from './PosterTable/PosterTable';
 import MainModal from './MainModal/MainModal';
+import MainNavigation from './navbar Components/Navigation/MainNavigation';
+import MainFooter from './footer Component/footer/MainFooter';
+
+const windows = ["home", "contact", "imprint", "faq"];
 
 function App() {
-  const [showModal, setShowModal] = useState(false);
+  const [currentWindow, setCurrentWindow] = useState(1);
+  const [selectedMovieId, setSelectedMovieId] = useState(-1);
 
   return (
     <div className="App">
-      <canvas id="titleCanvas"></canvas>
 
-      <center><header className="mainheader">
-        <nav><ul>
-          <li> <a href="#">ABOUT</a> </li>
-          <li> <a href="#">ÜBER</a> </li>
-          <li> <a href="#">ANSCHRIFT</a> </li>
-          <li> <a href="#">IMPRESSUM</a> </li>
-        </ul></nav>
-      </header></center>
+      <div className="cinema-title">Kino XY</div>
 
-      { showModal && <MainModal id="mainModal" modalListener={setShowModal}></MainModal>}
+      <React.Fragment>
+        <MainNavigation setCurrentWindow={setCurrentWindow} />
+      </React.Fragment>
 
-      <PosterTable id="posterTable" modalListener={setShowModal}></PosterTable>
+      <div className="app-content">
 
-      <footer>
-        copy right
-      </footer>
+        {
+          (currentWindow === 0 && "home")
+          || (currentWindow === 1 && "contact")
+          || (currentWindow === 2 && "imprint")
+          || (currentWindow === 3 && "faq")
+        }
+
+        {(selectedMovieId !== -1) && <MainModal id="mainModal" setSelectedMovieId={setSelectedMovieId} movieId={selectedMovieId}></MainModal>}
+        <PosterTable id="posterTable" setSelectedMovieId={setSelectedMovieId}></PosterTable>
+
+      </div>
+
+      <MainFooter />
+
     </div>
   );
+
 }
-
-
 
 export default App;

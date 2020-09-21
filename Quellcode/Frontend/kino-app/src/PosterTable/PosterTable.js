@@ -1,73 +1,42 @@
-import React, { Component } from 'react';
+import React, { Component, useState, useEffect } from 'react';
 import "./styles.less";
 import api from '../api';
 import skyfallImg from "./Skyfall.jpg";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFilm } from '@fortawesome/free-solid-svg-icons'
 
-export class PosterTable extends Component {
+const PosterTable = (props) => {
+    const [movies, setMovies] = useState([{}]);
 
-    componentDidMount() {
+    useEffect(() => {
         api.get('/movies')
             .then(res => {
-                const movies = res.data;
-                this.setState({
-                    movies: movies.map(movie => {
+                const movies = res.data._embedded.movies;
+                setMovies(
+                    movies.map(movie => {
                         const { mid, title, imgSrc } = movie;
-                        return { id: mid, title: title, imgSrc: imgSrc };
+                        return {
+                            id: mid,
+                            title: title,
+                            imgSrc: imgSrc
+                        };
                     })
-                });
-            });
+                );
+            })
+    }, [])
+
+
+    function onPosterClick(id) {
+        console.log(id);
+        console.log(props);
+        props.setSelectedMovieId(id);
     }
 
-    constructor(props) {
-        super(props);
-        this.state = { movies: [] };
-        // this.state = {
-        //     movies: [
-        //         {
-        //             id: 1,
-        //             imgSrc: "Skyfall.jpg",
-        //             title: "James Bond"
-        //         },
-        //         {
-        //             id: 2,
-        //             imgSrc: "Skyfall.jpg",
-        //             title: "James Bond"
-        //         },
-        //         {
-        //             id: 3,
-        //             imgSrc: "Skyfall.jpg",
-        //             title: "James Bond"
-        //         },
-        //         {
-        //             id: 4,
-        //             imgSrc: "Skyfall.jpg",
-        //             title: "James Bond"
-        //         },
-        //         {
-        //             id: 5,
-        //             imgSrc: "Skyfall.jpg",
-        //             title: "James Bond"
-        //         },
-        //         {
-        //             id: 6,
-        //             imgSrc: "Skyfall.jpg",
-        //             title: "James Bond"
-        //         },
-        //     ]
-        // };
-    }
-
-    onPosterClick() {
-        this.props.modalListener(true);
-    }
-
-    renderMoviePosters() {
-        return this.state.movies.map((movie, index) => {
-            const { id, imgSrc, title } = movie;
+    function renderMoviePosters() {
+        return movies.map((movie) => {
+            const { id, title, imgSrc } = movie;
             return (
-                <div className="moviePoster" key={id} onClick={e => this.onPosterClick()}>
+                <div className="moviePoster" key={id} onClick={e => onPosterClick(id)}>
                     { imgSrc !== undefined ? <img src={imgSrc} className="moviePosterImage"></img>
                         : <FontAwesomeIcon className="moviePosterImage" icon={faFilm} size="3x"></FontAwesomeIcon>}
                     <p className="moviePosterTitle">{title}</p>
@@ -76,16 +45,14 @@ export class PosterTable extends Component {
         })
     }
 
-
-    render() {
-        return (
+    return (
+        <div>
             <div>
-                <div>
-                    {this.renderMoviePosters()}
-                </div>
-                <div style={{ clear: "both" }}></div>
+                {renderMoviePosters()}
             </div>
-        )
-    }
-
+            <div style={{ clear: "both" }}></div>
+        </div>
+    )
 }
+
+export default PosterTable;
