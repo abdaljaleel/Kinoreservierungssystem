@@ -10,10 +10,20 @@ public class ShowEvent {
     private int sID;
     private LocalDateTime showTime;
     private boolean is3D;
+
+
+
+    private boolean isFullyBooked;
     private int mid;
     private int sepId;
 
+    public boolean isFullyBooked() {
+        return isFullyBooked;
+    }
 
+    public void setFullyBooked(boolean fullyBooked) {
+        isFullyBooked = fullyBooked;
+    }
 
     public int getsID() {
         return sID;
