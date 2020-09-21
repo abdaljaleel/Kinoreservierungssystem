@@ -2,19 +2,28 @@ package saue.kinoticketreservierungssystem.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
 import java.time.LocalDateTime;
 
 @Entity
 public class ShowEvent {
     @Id
     private int sID;
-    private LocalDateTime dateTime;
+    private LocalDateTime showTime;
     private boolean is3D;
+
+
+
+    private boolean isFullyBooked;
     private int mid;
     private int sepId;
 
+    public boolean isFullyBooked() {
+        return isFullyBooked;
+    }
 
+    public void setFullyBooked(boolean fullyBooked) {
+        isFullyBooked = fullyBooked;
+    }
 
     public int getsID() {
         return sID;
@@ -24,12 +33,12 @@ public class ShowEvent {
         this.sID = sID;
     }
 
-    public LocalDateTime getDateTime() {
-        return dateTime;
+    public LocalDateTime getShowTime() {
+        return showTime;
     }
 
-    public void setDateTime(LocalDateTime dateTime) {
-        this.dateTime = dateTime;
+    public void setShowTime(LocalDateTime showTime) {
+        this.showTime = showTime;
     }
 
     public boolean isIs3D() {

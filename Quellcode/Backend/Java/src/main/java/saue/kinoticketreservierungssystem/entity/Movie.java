@@ -13,22 +13,37 @@ public class Movie {
 
     @Id private int MID;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "mid")
-    private List<ShowEvent> event;
 
     @ManyToMany
     @JoinTable(
-            name = "movie_genre",
+            name = "plays_in",
             joinColumns = @JoinColumn(name = "mid"),
-            inverseJoinColumns = @JoinColumn(name = "GID"))
-    private Set<Genre> genres;
+            inverseJoinColumns = @JoinColumn(name = "pid")
+    )
+    private Set<Person> actors;
 
-    public Set<Genre> getGenres() {
-        return genres;
+    @ManyToMany
+    @JoinTable(
+            name = "directs",
+            joinColumns = @JoinColumn(name = "mid"),
+            inverseJoinColumns = @JoinColumn(name = "pid")
+    )
+    private Set<Person> directors;
+
+    public Set<Person> getDirectors() {
+        return directors;
     }
 
-    public void setGenres(Set<Genre> genres) {
-        this.genres = genres;
+    public void setDirectors(Set<Person> directors) {
+        this.directors = directors;
+    }
+
+    public Set<Person> getActors() {
+        return actors;
+    }
+
+    public void setActors(Set<Person> actors) {
+        this.actors = actors;
     }
 
     public String getTitle() {
@@ -94,10 +109,5 @@ public class Movie {
     public void setBookedCounter(int bookedCounter) {
         this.bookedCounter = bookedCounter;
     }
-
-
-    public Movie(){
-    }
-
 
 }
