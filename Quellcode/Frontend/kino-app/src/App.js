@@ -11,23 +11,25 @@ function App() {
 
   return (
     <div className="App">
-      <canvas id="titleCanvas"></canvas>
 
-      <React.Fragment>     
-      <MainNavigation/>
+      <div className="cinema-title">Kino XY</div>
+
+      <React.Fragment>
+        <MainNavigation />
       </React.Fragment>
 
-      { selectedMovieId !== -1 && <MainModal id="mainModal" setSelectedMovieId={setSelectedMovieId} movieId={selectedMovieId}></MainModal>}
+      <div className="app-content">
 
-      <PosterTable id="posterTable" setSelectedMovieId={setSelectedMovieId}></PosterTable>
+        {selectedMovieId !== -1 && <MainModal id="mainModal" setSelectedMovieId={setSelectedMovieId} movieId={selectedMovieId}></MainModal>}
+        <PosterTable id="posterTable" setSelectedMovieId={setSelectedMovieId}></PosterTable>
 
-      <MainFooter/>
+      </div>
 
-    
+      <MainFooter />
+
     </div>
-    
   );
-  
+
 }
 
 export default App;
