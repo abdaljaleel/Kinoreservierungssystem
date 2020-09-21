@@ -1,4 +1,4 @@
-package saue;
+package saue.kinoticketreservierungssystem.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;

@@ -1,17 +1,28 @@
-package saue;
+package saue.kinoticketreservierungssystem.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
+
 @Entity
 public class Seat {
     @Id
+    @Column(name = "SeID")
     private int seId;
-    private boolean row;
-    private boolean seat;
+    private int row;
+    private int seat;
     private boolean booked;
     private boolean handicap;
-    private int spId;
-    private float price;
+    private float DefaultPrice;
+    private String Category;
+    private boolean isDiscounted;
+    private int sp_id;
+
+    public int getSp_id() {
+        return sp_id;
+    }
+
+    public void setSp_id(int sp_id) {
+        this.sp_id = sp_id;
+    }
 
     public int getSeId() {
         return seId;
@@ -21,19 +32,19 @@ public class Seat {
         this.seId = seId;
     }
 
-    public boolean isRow() {
+    public int getRow() {
         return row;
     }
 
-    public void setRow(boolean row) {
+    public void setRow(int row) {
         this.row = row;
     }
 
-    public boolean isSeat() {
+    public int getSeat() {
         return seat;
     }
 
-    public void setSeat(boolean seat) {
+    public void setSeat(int seat) {
         this.seat = seat;
     }
 
@@ -53,19 +64,27 @@ public class Seat {
         this.handicap = handicap;
     }
 
-    public int getSpId() {
-        return spId;
+    public float getDefaultPrice() {
+        return DefaultPrice;
     }
 
-    public void setSpId(int spId) {
-        this.spId = spId;
+    public void setDefaultPrice(float defaultPrice) {
+        DefaultPrice = defaultPrice;
     }
 
-    public float getPrice() {
-        return price;
+    public String getCategory() {
+        return Category;
     }
 
-    public void setPrice(float price) {
-        this.price = price;
+    public void setCategory(String category) {
+        Category = category;
+    }
+
+    public boolean isDiscounted() {
+        return isDiscounted;
+    }
+
+    public void setDiscounted(boolean discounted) {
+        isDiscounted = discounted;
     }
 }
