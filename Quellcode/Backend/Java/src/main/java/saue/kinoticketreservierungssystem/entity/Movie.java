@@ -7,12 +7,13 @@ import java.util.Set;
 @Entity
 @Table(name = "movie")
 public class Movie {
-    private String title, description, prodCountry, trailer; 
+    private String title;
+    private String description;
+    private String prodCountry;
+    private String trailer;
+    private String cover;
     private int length, fsk, bookedCounter;
-
-
     @Id private int MID;
-
 
     @ManyToMany
     @JoinTable(
@@ -52,6 +53,14 @@ public class Movie {
 
     public void setTitle(String title) {
         this.title = title;
+    }
+
+    public String getCover() {
+        return cover;
+    }
+
+    public void setCover(String cover) {
+        this.cover = cover;
     }
 
     public String getDescription() {
