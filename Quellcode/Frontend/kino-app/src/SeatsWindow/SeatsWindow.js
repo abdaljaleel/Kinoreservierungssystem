@@ -1,61 +1,52 @@
-import React, { Component, useState } from 'react';
+import React, { Component, useEffect, useState } from 'react';
 import "./styles.less";
+import api from '../api';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faWheelchair } from '@fortawesome/free-solid-svg-icons'
 import { faHeart } from '@fortawesome/free-solid-svg-icons'
 
 const SeatsWindow = (props) => {
 
+    const [seats, setSeats] = useState([]);
+
+    useEffect(() => {
+        api.get(`/seats/search/findBySID?sid=${props.selectedShowEvent.sid}`)
+            .then(res => {
+                const seatsDb = res.data._embedded.seats;
+                setSeats(seatsDb?.map(s => ({
+                    row: s.row,
+                    seat: s.seat,
+                    booked: s.booked,
+                    handicap: s.handicap,
+                    category: s.category,
+                    price: s.defaultPrice,
+                    isSelected: false // new attribute
+                })));
+            })
+    }, [])
+
     // statisch: Rabatt -2€
     // sortiert: row, col
     // PK: seatId
-    const [seats, setSeats] = useState([
-        {
-            id: 472,
-            row: 0,
-            col: 0,
-            price: 22.44,
-            category: "loge",
-            type: "normal",
-            bookStatus: "0"
-        },
-        {
-            id: 473,
-            row: 0,
-            col: 1,
-            price: 22.44,
-            category: "loge",
-            type: "paarsitz",
-            bookStatus: "0"
-        },
-        {
-            id: 474,
-            row: 1,
-            col: 0,
-            price: 22.44,
-            category: "parkett",
-            type: "handicap",
-            bookStatus: "0"
-        },
-        {
-            id: 475,
-            row: 2,
-            col: 0,
-            price: 22.44,
-            category: "parkett",
-            type: "normal",
-            bookStatus: "2"
-        }
-    ]);
+    // const [seats, setSeats] = useState([
+    //     {
+    //         // id: 472,
+    //         row: 0,
+    //         seat: 0,
+    //         handicap: false,
+    //         category: "loge",
+    //         discounted: false,
+    //         defaultPrice: 22.44,
+    //         // bookStatus: "0"
+    //     },
 
-    function onSeatClicked(id, row) {
-        // lift state up here? MainModal could know selected seats...
-        setSeats(seats.map((seat) => {
-            return seat.id === id && seat.bookStatus !== "2" ? {
-                ...seat,
-                bookStatus: seat.bookStatus === "0" ? "1" : "0"
-            } : seat;
-        }));
+    function onSeatClicked(clickedSeat) {
+        if (props.selectedSeats.filter(s => s.row === clickedSeat.row && s.seat === clickedSeat.seat).length === 0) {
+            // seat was added, notify MainModal
+            props.handleAddSeat(clickedSeat);
+        } else {
+            props.handleRemoveSeat(clickedSeat);
+        }
     }
 
     function renderSeatPlan() {
@@ -67,22 +58,24 @@ const SeatsWindow = (props) => {
             seatsByRow.push(tempRow);
         }
         // return seats in <tr> by row
-        return (seatsByRow.map(row => {
+        return (seatsByRow.map((row, index) => {
             return (
-                <tr>
-                    {row.map(seat => {
-                        const { id, row, col, category, type, bookStatus } = seat;
-                        const className = (bookStatus === "2" && "seat-occupied")
-                            || (bookStatus === "1" && "seat-selected")
-                            || (type === "handicap" && "seat-handicap")
-                            || (type === "paarsitz" && "seat-couple")
-                            || (type === "normal" && "seat");
+                <tr key={index}>
+                    {row.map(s => {
+                        const { row, seat, booked, handicap, category, price, isSelected } = s;
+                        let className = (booked && "seat-occupied")
+                            || (handicap && "seat-handicap")
+                            || (category === "paarsitz" && "seat-couple")
+                            || (category === "parkett" && "seat");
+                        // if this seat(row,col) is selected, set class to seat-selected
+                        className = props.selectedSeats.filter(s => s.row === row && s.seat === seat).length === 0
+                            ? className : "seat-selected";
                         return (
-                            <td id={id} onClick={e => bookStatus !== "2" && onSeatClicked(id, row, col)}>
+                            <td key={row, seat} onClick={e => !booked && onSeatClicked(s)}>
                                 <div className={className}>
                                     {
-                                        (type === "handicap" && <FontAwesomeIcon icon={faWheelchair} className="handicap-icon" />)
-                                        || (type === "paarsitz" && <FontAwesomeIcon icon={faHeart} className="handicap-icon" />)
+                                        (handicap && <FontAwesomeIcon icon={faWheelchair} className="handicap-icon" />)
+                                        || (category === "paarsitz" && <FontAwesomeIcon icon={faHeart} className="handicap-icon" />)
                                     }
                                 </div>
                             </td>
@@ -95,11 +88,16 @@ const SeatsWindow = (props) => {
     }
 
     function renderPriceTable() {
-        return seats.filter(s => s.bookStatus === "1").map(seat => {
+        return props.selectedSeats.map(seat => {
+            let specification = `${props.movie.title} - ${seat.category}`;
+            if (props.selectedShowEvent.is3D)
+                specification += " - in 3D"
+            if (seat.handicap)
+                specification += " - rollstuhlgerecht";
             return (
                 <tr className="price-table-row">
                     <td className="price-table-data">
-                        {`${props.movie.title} - 01.01.2020, XX:XX Uhr - ${seat.type}, ${seat.category}`}
+                        {specification}
                     </td>
                     <td className="price-table-data">
                         {`${Math.round(seat.price * 100) / 100} €`}
@@ -110,18 +108,15 @@ const SeatsWindow = (props) => {
     }
 
     function renderSum() {
-        let selectedSeats = seats.filter(s => s.bookStatus === "1");
-        // notify MainModal
-        props.handleSeatChange(selectedSeats);
-        console.log(selectedSeats);
         let totalPrice = 0;
-        if (selectedSeats.length !== 0) {
-            totalPrice = selectedSeats.map(seat => seat.price).reduce((prev, curr) => prev + curr);
+        const totalSeats = props.selectedSeats.length;
+        if (totalSeats !== 0) {
+            totalPrice = props.selectedSeats.map(seat => seat.price).reduce((prev, curr) => prev + curr);
             totalPrice = Math.round(totalPrice * 100) / 100;
         }
         return (
             <tr className="price-table-row">
-                <td className="price-table-data">{`${selectedSeats.length} x ${props.movie.title}`}</td>
+                <td className="price-table-data">{`${totalSeats} x ${props.movie.title}`}</td>
                 <td id="price-sum" className="price-table-data">{`${totalPrice} €`}</td>
             </tr>
         )
@@ -135,13 +130,23 @@ const SeatsWindow = (props) => {
 
                 <div className="seats-selector">
                     <h4>Kino 11</h4>
-                    <table id="seatPlanTable">
-                        <tbody>{renderSeatPlan()}</tbody>
-                    </table>
+                    {seats.length !== 0 &&
+                        (
+                            <div className="seat-plan-table-wrapper">
+                                <table id="seat-plan-table">
+                                    <tbody>{renderSeatPlan()}</tbody>
+                                </table>
+                                <div className="movie-screen">
+                                    Bildschirm
+                                </div>
+                            </div>
+                        )
+                    }
+                    {seats.length === 0 && <div>Kein Sitzplan verfügbar</div>}
                 </div>
 
                 <div className="seats-prices" id="seats-prices">
-                    <p><strong>Aktuelle Auswahl: <span id="totalNoTickets">0</span> Tickets</strong></p>
+                    <p><strong>Aktuelle Auswahl: {props.selectedSeats.length} {props.selectedSeats.length === 1 ? "Ticket" : "Tickets"}</strong></p>
                     <table className="price-table" id="ticketPriceTable">
                         <tbody>{renderPriceTable()}</tbody>
                     </table>
@@ -151,7 +156,7 @@ const SeatsWindow = (props) => {
                     </table>
                 </div>
             </div>
-        </div>
+        </div >
     );
 }
 

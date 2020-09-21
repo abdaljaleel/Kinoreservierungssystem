@@ -15,6 +15,8 @@ const infoStages = ["Überblick", "Vorstellung wählen", "Sitzplätze wählen", 
 const MainModal = (props) => {
     const [currentWindow, setCurrentWindow] = useState(firstWindow);
     const [selectedMovie, setSelectedMovie] = useState({});
+    const [selectedShowEvent, setSelectedShowEvent] = useState({});
+    const [selectedSeats, setSelectedSeats] = useState([]);
     const tempBooking = {
         Booking: {},
         seats: [{ seatId: undefined, isDiscounted: undefined }],
@@ -33,11 +35,15 @@ const MainModal = (props) => {
     //     totalPrice: "1"
     // }
 
-    const handleSeatChange = (seats) => {
-        tempBooking.seats = seats;
+    const handleAddSeat = (seat) => {
+        setSelectedSeats([...selectedSeats, seat]);
     }
-    const handleShowEventIdChange = (showEventId) => {
-        tempBooking.showEventId = showEventId;
+    const handleRemoveSeat = (seat) => {
+        setSelectedSeats(selectedSeats.filter(s => !(s.row === seat.row && s.seat === seat.seat)));
+    }
+    const handleShowEventChange = (showEvent) => {
+        console.log(showEvent);
+        setSelectedShowEvent(showEvent);
     }
 
 
@@ -93,8 +99,14 @@ const MainModal = (props) => {
 
                     <div className="movie-modal-content">
                         {currentWindow === 0 && <OverviewWindow id="modal-window-overview" movie={selectedMovie}></OverviewWindow>}
-                        {currentWindow === 1 && <ShowtimesWindow id="modal-window-showtimes" handleShowEventIdChange={handleShowEventIdChange} movieId={props.movieId}></ShowtimesWindow>}
-                        {currentWindow === 2 && <SeatsWindow id="modal-window-seats" handleSeatChange={handleSeatChange} movieId={props.movieId} movie={selectedMovie}></SeatsWindow>}
+
+                        {currentWindow === 1 && <ShowtimesWindow id="modal-window-showtimes" selectedShowEvent={selectedShowEvent}
+                            handleShowEventChange={handleShowEventChange} movieId={props.movieId}></ShowtimesWindow>}
+
+                        {currentWindow === 2 && <SeatsWindow id="modal-window-seats"
+                            handleAddSeat={handleAddSeat} handleRemoveSeat={handleRemoveSeat} selectedSeats={selectedSeats}
+                            movie={selectedMovie} selectedShowEvent={selectedShowEvent}></SeatsWindow>}
+
                         {currentWindow === 3 && <PaymentWindow id="modal-window-payment"></PaymentWindow>}
                     </div>
 

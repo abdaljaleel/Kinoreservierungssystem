@@ -7,17 +7,16 @@ const showDays = ["Freitag", "Samstag", "Sonntag", "Montag", "Dienstag", "Mittwo
 
 const ShowtimesWindow = (props) => {
 
-    const [selectedShow, setSelectedShow] = useState();
-    const [showEventsGrouped, setShowEvents] = useState();
+    const [showEventsGrouped, setShowEventsGrouped] = useState();
 
     useEffect(() => {
         api.get(`/showEvents/search/findByMid?mid=${props.movieId}`)
             .then(res => {
                 // map date and time
                 const showEvents = res.data._embedded.showEvents.map(showEvent => {
-                    const { sid, showTime, is3D } = showEvent;
+                    const { sID, showTime, is3D } = showEvent;
                     return {
-                        sid: sid,
+                        sid: sID,
                         // showDateTime: showTime,
                         showDate: showTime.substring(0, showTime.indexOf('T')),
                         showTime: showTime.substr(showTime.indexOf('T') + 1),
@@ -27,11 +26,11 @@ const ShowtimesWindow = (props) => {
                 // let b = {
                 //     showEvents: [
                 //         {
-                //             sid: "1",
-                //             showDate: "date",
+                //             date: "date",
                 //             showTimes: [
                 //                 {
                 //                     sid: "1",
+                //                     showDate: "01-01-2020",
                 //                     showTime: "11:00",
                 //                     is3D: true
                 //                 }
@@ -57,14 +56,14 @@ const ShowtimesWindow = (props) => {
                 }
                 console.log(showEventsGrouped);
                 // set grouped show events as state
-                setShowEvents(showEventsGrouped);
+                setShowEventsGrouped(showEventsGrouped);
             });
     }, [])
 
     function renderShowDates() {
         return showEventsGrouped?.map(showEventGroup => {
             return (
-                <Dropdown.Item onClick={e => setSelectedShow(showEventGroup.showEvents[0])}>
+                <Dropdown.Item key={showEventGroup.date} onClick={e => props.handleShowEventChange(showEventGroup.showEvents[0])}>
                     {showEventGroup.date}
                 </Dropdown.Item>
             )
@@ -72,21 +71,22 @@ const ShowtimesWindow = (props) => {
     }
 
     function renderShowTimes() {
-        return showEventsGrouped?.filter(showEventGroup => showEventGroup.date === selectedShow?.showDate)[0]
-            ?.showEvents.map(s => {
-                return (
-                    <Dropdown.Item onClick={e => setSelectedShow(s)}>
-                        {s.showTime}
-                    </Dropdown.Item>
-                )
-            })
+        return showEventsGrouped?.filter(
+            showEventGroup => showEventGroup.date === props.selectedShowEvent?.showDate
+        )[0]?.showEvents.map(s => {
+            return (
+                <Dropdown.Item key={s.sid} onClick={e => props.handleShowEventChange(s)}>
+                    {s.showTime}
+                </Dropdown.Item>
+            )
+        })
     }
 
     return (
         <div>
             <div className="dropdown-showDates">
                 <Dropdown>
-                    <Dropdown.Toggle>{selectedShow === undefined ? "Datum wählen" : selectedShow.showDate}</Dropdown.Toggle>
+                    <Dropdown.Toggle>{props.selectedShowEvent === undefined ? "Datum wählen" : props.selectedShowEvent.showDate}</Dropdown.Toggle>
                     <Dropdown.Menu>
                         {renderShowDates()}
                     </Dropdown.Menu>
@@ -95,7 +95,7 @@ const ShowtimesWindow = (props) => {
 
             <div className="dropdown-showTime">
                 <Dropdown>
-                    <Dropdown.Toggle>{selectedShow === undefined ? "Zeit wählen" : selectedShow.showTime}</Dropdown.Toggle>
+                    <Dropdown.Toggle>{props.selectedShowEvent === undefined ? "Zeit wählen" : props.selectedShowEvent.showTime}</Dropdown.Toggle>
                     <Dropdown.Menu>
                         {renderShowTimes()}
                     </Dropdown.Menu>

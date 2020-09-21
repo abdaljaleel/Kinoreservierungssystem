@@ -46,14 +46,28 @@
       margin-bottom: 16px;
   }
   
-  #seatPlanTable {
+  #seat-plan-table {
   //   flex-grow: 0.5;
     width: 100%;
     max-height: 300px;
     padding: 10px;
     display: block;
-    float: left;
     overflow: auto;
+  }
+
+  .seat-plan-table-wrapper {
+    display: block;
+    float: left;
+  }
+
+  .movie-screen {
+    width: 100%;
+    background-color: gray;
+    font-style: italic;
+    font-size: small;
+    text-align: center;
+    color: white;
+    padding: 0px;
   }
 
   @seatWidth: 24px;
@@ -87,20 +101,13 @@
   .seat-couple {
     .seat();
     // width: @seatWidth*2;
-    background-color: lightpink;
+    background-color: violet;
   }
   .seat-occupied {
     .seat();
-    background-color: lightcoral;
+    background-color: red;
   }
   .seat-selected {
     .seat();
     background-color: lightgreen;
-  }
-  
-  .movieScreen {
-    width: 100px;
-    height: 10px;
-    background-color: gray;
-    margin-bottom: 10px;
   }
