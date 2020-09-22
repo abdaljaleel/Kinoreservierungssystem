@@ -7,13 +7,21 @@ import java.util.Set;
 @Entity
 @Table(name = "movie")
 public class Movie {
+    @Id private int MID;
     private String title;
     private String description;
     private String prodCountry;
     private String trailer;
     private String cover;
     private int length, fsk, bookedCounter;
-    @Id private int MID;
+
+    @ManyToMany
+    @JoinTable(
+            name = "movie_genre",
+            joinColumns = @JoinColumn(name = "mid"),
+            inverseJoinColumns = @JoinColumn(name = "gid")
+    )
+    private Set<Genre> genres;
 
     @ManyToMany
     @JoinTable(
@@ -30,6 +38,14 @@ public class Movie {
             inverseJoinColumns = @JoinColumn(name = "pid")
     )
     private Set<Person> directors;
+
+    public Set<Genre> getGenres() {
+        return genres;
+    }
+
+    public void setGenres(Set<Genre> genres) {
+        this.genres = genres;
+    }
 
     public Set<Person> getDirectors() {
         return directors;
